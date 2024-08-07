@@ -1,8 +1,7 @@
 import axios from "axios";
-import { config } from "react-spring";
 
 const api=axios.create({
-    baseURL:"https://portfolionode.vercel.app/api/"
+    baseURL:"https://portfolionode.vercel.app/"
 })
 
 api.interceptors.request.use(
