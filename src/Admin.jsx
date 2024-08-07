@@ -14,7 +14,7 @@ export default function Admin() {
     e.preventDefault();
     const credentials = { username, password };
     try {
-      const response=await api.post("/admin",credentials)
+      const response=await api.post("/admin/",credentials)
       localStorage.setItem("token", response.data.accessToken);
       setAccess(true);
       try {
