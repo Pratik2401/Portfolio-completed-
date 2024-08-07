@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { smoothScrollTo } from './scroll'; 
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const CustomNavbar = () => {
@@ -32,9 +33,9 @@ const CustomNavbar = () => {
   return (
     <Navbar expand="lg" className="justify-content-between sticky-top" style={{ backgroundColor: navbarBg }}>
   <Container>
-    <Navbar.Brand onClick={() => handleScrollTo('home')} className="fs-1 text-light">
-      Pratik <span className="surname">Mali</span>
-    </Navbar.Brand>
+  <Navbar.Brand as={Link} to="/admin" className="fs-1 text-light">
+          Pratik <span className="surname">Mali</span>
+        </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-light" />
     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
       <Nav className="fs-4">
