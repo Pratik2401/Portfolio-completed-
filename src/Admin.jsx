@@ -18,7 +18,7 @@ export default function Admin() {
       localStorage.setItem("token", response.data.accessToken);
       setAccess(true);
       try {
-        const response = await api.get("/messages/get");
+        const response = await api.get("messages/get");
         setMessages(response.data);
         console.log(response.data);
       } catch (err) {
