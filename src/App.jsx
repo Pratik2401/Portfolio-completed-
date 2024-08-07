@@ -15,8 +15,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/Portfolio/admin" element={<Admin />} />
-        <Route path="/Portfolio/" element={
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/" element={
           <>
             <Navbar/>
             <Home/>
