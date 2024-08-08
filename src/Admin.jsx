@@ -14,7 +14,7 @@ export default function Admin() {
     e.preventDefault();
     const credentials = { username, password };
     try {
-      const response=await api.post("/admin/",credentials)
+      const response = await api.post("/admin/", credentials);
       localStorage.setItem("token", response.data.accessToken);
       setAccess(true);
       try {
@@ -36,6 +36,26 @@ export default function Admin() {
     }
   };
 
+  const deleteMessage = async (id) => {
+    try {
+      await api.delete(`messages/delete/${id}`);
+      setMessages(messages.filter(message => message._id !== id));
+      Swal.fire("Success", "Message deleted successfully", "success");
+    } catch (error) {
+      Swal.fire("Error", error.response?.data?.message || "An error occurred");
+    }
+  };
+
+  const delAllMessage=async()=>{
+    try {
+      await api.delete(`messages/delAll`);
+      setMessages([]);
+      Swal.fire("Success", "Message deleted successfully");
+    } catch (error) {
+      console.log(error)
+      Swal.fire("Error", error.response?.data?.message || "An error occurred");
+    }
+  }
   return (
     <div className='adminPage'>
       {access === false ? (
@@ -67,14 +87,18 @@ export default function Admin() {
           <button className="loginBtn" onClick={adminLogin}><strong>Login</strong></button>
         </div>
       ) : (
+        
         <div className="messages">
+          
+          <button className="delBtn" onClick={delAllMessage}><strong>Delete All Messages</strong></button>
           <table className="custom_table">
             <thead>
               <tr>
                 <th scope="col">Sr.No</th>
-                <th scope="col">Names</th>
+                <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Message</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -85,11 +109,19 @@ export default function Admin() {
                     <td>{message.name}</td>
                     <td>{message.email}</td>
                     <td>{message.message}</td>
+                    <td>
+                      <button
+                        className="deleteOne"
+                        onClick={() => deleteMessage(message._id)}
+                      >
+                        <strong>Delete</strong>
+                      </button>
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="4">No messages found</td>
+                  <td colSpan="5">No messages found</td>
                 </tr>
               )}
             </tbody>

@@ -111,3 +111,57 @@ label::after{
     padding: 15px;
     border-radius: 10px;
 }
+
+
+.deleteOne{
+    border-radius: 10px;
+    background-color: white !important;
+    color: #cd0ff9 !important;
+    padding: 5px 20px !important;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+
+.delBtn{
+    border-radius: 10px;
+    background-color: white !important;
+    color: #cd0ff9 !important;
+    padding: 5px 20px !important;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+    margin: 0px 35%;
+    margin-bottom: 30px;
+}
+
+.delBtn::before,.deleteOne::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #cd0ff9;
+    transition: left 0.4s ease-in-out;
+    z-index: 0;
+}
+
+.delBtn:hover::before,.deleteOne:hover::before{
+    left: 0;
+}
+
+.delBtn:hover,.deleteOne:hover{
+    color: white !important;
+}
+
+.delBtn > strong,.deleteOne>strong{
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transition: color 0.4s ease-in-out;
+}
+
+.delBtn:hover > strong ,.deleteOne:hover>strong{
+    color: white !important;
+}

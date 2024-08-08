@@ -18,6 +18,9 @@ export default function Contact() {
     try {
     const response=await api.post('/messages/send',messageSend)
     console.log(response)
+    Swal.fire("Done",
+      "Successfully send message"
+    );
     } catch (error) {
       Swal.fire(
         "Error",
