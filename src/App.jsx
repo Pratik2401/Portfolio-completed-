@@ -10,9 +10,11 @@ import Project from './Project';
 import Certification from './Certification';
 import About from './About';
 import Contact from './Contact';
-
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
+    <>
+    <Analytics/>
     <Router>
       <Routes>
         <Route path="/admin" element={<Admin/>} />
@@ -30,6 +32,7 @@ function App() {
         } />
       </Routes>
     </Router>
+    </>
   );
 }
 
