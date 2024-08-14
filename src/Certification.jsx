@@ -11,6 +11,7 @@ import googleCloud from './assets/images/googlecloud.png'
 import JIT from './assets/images/jit.png'
 import Cod_py from './assets/images/codsoft-cpp.jpg'
 import Cod_cpp from './assets/images/codsoft-cpp.jpg'
+import nptelMicrocontroller from './assets/images/nptlMicro.jpg'
 
 import './Certification.css';
 
@@ -51,6 +52,13 @@ const certification =
       link:"https://www.linkedin.com/posts/pratikmali24_googlestudentclub-googlecloud-learningjourney-activity-7121788306316570625--5H_?utm_source=share&utm_medium=member_desktop",
       heading: "Google Cloud Certification",
       description: "Achieved Google Cloud certification, demonstrating proficiency in cloud computing technologies and services.",
+    },
+    
+    {
+      image: nptelMicrocontroller,
+      link:"https://www.linkedin.com/posts/pratikmali24_embeddedsystems-microcontrollers-iitb-activity-7227575130330132480-ecHJ?utm_source=share&utm_medium=member_desktop",
+      heading: "NPTEL Microcontroller Certificate",
+      description: "Achieved certification from the NPTEL IIT-M workshop on Microcontrollers, focusing on Embedded C, Assembly Language, and practical projects."
     }
   ]
   
@@ -69,8 +77,8 @@ const MyWork = () => {
 
     <Row>
       {certification.map((skill, index) => (
-        <Col key={index} md={4} className="mb-4">
-          <Card style={{ width: '18rem', height: '30rem', position: 'relative'}} className='certificates_card d-flex justify-content-center'>
+        <Col key={index} md={4} className="mb-4  d-flex justify-content-center">
+          <Card style={{ width: '18rem', height: 'auto', position: 'relative'}} className='certificates_card'>
             <Card.Img variant="top" src={skill.image} className="card-img-top container certificates_card_img" />
             <Card.Body>
               <Card.Title>{skill.heading}</Card.Title>

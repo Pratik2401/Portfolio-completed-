@@ -13,7 +13,9 @@ import Weather from './assets/images/Projects/weather_app.png'
 import Dyazo from './assets/images/Projects/Dyazo.png'
 import News from './assets/images/Projects/news_app.png'
 import Text from './assets/images/Projects/text_editor.png'
+import Textsaver from './assets/images/Projects/text-saver.png'
 
+import contactApp from './assets/images/Projects/contactapp.png'
 import Calculator from './assets/images/Projects/calculator.png'
 import Password from './assets/images/Projects/password_manager.png'
 import Rock from './assets/images/Projects/rock_paper_scissor.png'
@@ -72,13 +74,26 @@ export default function Project() {
       tags: 'completed',
     },
     {
-      image: Text,
-      heading: 'Text Editor',
-      description: 'Designed and implemented using Arduino, this project showcases innovative hardware design and development for embedded systems. It features basic text editing functionalities with a straightforward interface.',
-      link: "https://github.com/Pratik2401/Text_Editor",
-      tags: 'completed',
+      "image": Text,
+      "heading": "Text Editor",
+      "description": "Designed and implemented using React, this project showcases a modern and efficient text editor. It features essential text editing functionalities with a user-friendly interface.",
+      "link": "https://github.com/Pratik2401/Text_Editor",
+      "tags": "completed"
     },
-    
+    {
+      "image": Textsaver,
+      "heading": "Text Saver",
+      "description": "Built with the MERN stack, this project allows users to save text and images, generating a sharable URL. It's an innovative solution for quickly sharing notes, images, or other information.",
+      "link": "https://savetext.vercel.app/",
+      "tags": "completed"
+    },
+    {
+      "image": contactApp,
+      "heading": "Contact Sphere",
+      "description": "A MERN stack contact management app with JWT authentication, bcrypt encryption, React Bootstrap UI, and seamless API integration. It showcases secure, user-friendly design and smooth navigation.",
+      "link": "https://spherecontact.vercel.app/",
+      "tags": "completed"
+    }
   ];
   
   let program_project=[{
@@ -111,7 +126,7 @@ export default function Project() {
           <div className="sub_heading">FrontEnd Projects</div>
           {front_end_projects.map((project, index) => (
             <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
-              <Card className='project_cards' style={{ width: '18rem', height: '30rem', position: 'relative' }}>
+              <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>
                 <Card.Img variant="top" src={project.image} className="card-img-top project_images" />
                 <Card.Body>
                   <Card.Title>{project.heading}</Card.Title>
@@ -129,7 +144,7 @@ export default function Project() {
         <div className="sub_heading">Coding Projects</div>
           {program_project.map((project, index) => (
             <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
-              <Card className='project_cards' style={{ width: '18rem', height: '29rem', position: 'relative' }}>
+              <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>
                 <Card.Img variant="top" src={project.image} className="card-img-top project_images" />
                 <Card.Body>
                   <Card.Title>{project.heading}</Card.Title>
