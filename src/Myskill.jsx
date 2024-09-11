@@ -23,7 +23,7 @@ import Expressjs from './assets/images/express-js.png';
 import Nodejs from './assets/images/nodejs.png';
 import MachineLearning from './assets/images/machinlearning.png';
 import Datasci from './assets/images/datasci.png';
-
+import Image from './assets/images/image_process.png';
 
 import './Myskill.css';
 const skills = [
@@ -127,6 +127,12 @@ const skills = [
     "image": Expressjs,
     "heading": "Express js",
     "description": "Building scalable network applications with Node.js using Express.js.",
+    "status": "completed"
+  },
+  {
+    "image": Image,
+    "heading": "Image Processing",
+    "description": "Analyzing and transforming images to extract valuable information or enhance visual quality for various applications.",
     "status": "completed"
   },
   {
