@@ -32,12 +32,29 @@ Participated in various extracurricular activities including olympaids of maths 
     <h4 className="vertical-timeline-element-subtitle">Mumbai Educational Trust Institute of Science and Commerce</h4>
     <p>
     Completed higher secondary education at MET Institute of Science and Commerce with a major in Science and optional subject as Information Technology. Developed a passion for programming.
+    <br />
+    <a href="https://metbhujbalknowledgecity.ac.in/metjrclg/" className='contact_me'>Institute Website</a>
     </p>
+  </VerticalTimelineElement>
+
+
+  <VerticalTimelineElement
+    className="vertical-timeline-element--work positions"
+    date="Sept 24 - Ongoing"
+   
+  > 
+   <h3 className="vertical-timeline-element-title">Open Source/IoT Lead</h3>
+  <h4 className="vertical-timeline-element-subtitle">Google Developers Group</h4>
+  <p>
+  In charge of leading the GDG MET student club's open source and IoT projects. leads initiatives, encourages teamwork, and interacts with the public to further technology advancement.
+  <br />
+  <a href="https://gdg.community.dev/gdg-on-campus-met-institute-of-engineering-bhujbal-knowledge-city-nashik-india/" className='contact_me'>Organization Website</a>
+</p>
   </VerticalTimelineElement>
 
   <VerticalTimelineElement
     className="vertical-timeline-element--work positions"
-    date="?????"
+    date="???"
    
   > 
    <h3 className="vertical-timeline-element-title">Internship</h3>
@@ -57,11 +74,11 @@ Participated in various extracurricular activities including olympaids of maths 
     <h4 className="vertical-timeline-element-subtitle">Mumbai Educational Trust Institute of Engineering</h4>
     <p>
     Completed higher secondary education at MET Institute of Science and Commerce with a major in Science and optional subject as Information Technology. Developed a passion for programming.
+    <br />
+    <a href="https://metbkcengg.ac.in/" className='contact_me'>Institute Website</a>
     </p>
   </VerticalTimelineElement>
   
-
-
 </VerticalTimeline>
     </div>
   )

@@ -1,12 +1,21 @@
-.project_images{
-    width: 18rem !important;
-    height: auto!important;
-    object-fit: contain;
-}
-.project_cards{
+.project_cards {
     overflow: hidden;
     border-radius: 30px !important;
+    background-color: white;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    perspective: 3000px; /* Try increasing this value */
 }
+
+
+.project_cards:hover {
+    color: white !important;
+    background-color: #a30fc4 !important;
+    transform: translateY(-10px) scale(1.05) perspective(1000px) rotateY(0deg) rotateX(0deg); /* Lifting effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
 .project_vist {
     background-color: white !important;
     color: #cd0ff9 !important;

@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Mypic from "./assets/images/mypic.jpg";
 import Typed from "typed.js";
+import { motion } from 'framer-motion';
 import "./font.css";
 import "./Home.css";
 
@@ -35,44 +36,60 @@ export default function Home() {
 
   const handleEmailClick = () => {
     window.open('mailto:pratikmali242005@gmail.com', '_blank');
-};
+  };
 
-const handleLinkedInClick = () => {
+  const handleLinkedInClick = () => {
     window.open('https://www.linkedin.com/in/pratikmali24/', '_blank');
-};
+  };
 
-const handleGitHubClick = () => {
+  const handleGitHubClick = () => {
     window.open('https://github.com/Pratik2401', '_blank');
-};
+  };
 
-const handleLeetCodeClick = () => {
+  const handleLeetCodeClick = () => {
     window.open('https://leetcode.com/u/pratikmali242005/', '_blank');
-};
-
+  };
 
   return (
     <Container className="d-flex align-items-center homebody" id="home">
       <Row className="justify-content-center margin_body">
         <Col md={6} className="text-light margin_info">
-          <p className="intro fs-1">
+          <motion.p
+            className="intro fs-1"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             Hi, It's <span className="home_name">Pratik</span>
-          </p>
-          <p className="field fs-2">
+          </motion.p>
+          <motion.p
+            className="field fs-2"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
             I'm a <span className="typed"></span>
-          </p>
-          <p className="info fs-5">
+          </motion.p>
+          <motion.p
+            className="info fs-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
             Delving into AI & Data Science, I channel my passion into
             captivating website development. My portfolio highlights dynamic,
             responsive designs that showcase innovation. Exploring AI, IoT, and
             microprocessors, I blend creativity with technical skill to craft
             compelling digital experiences.
-          </p>
+          </motion.p>
 
-          <div className="links d-flex">
-            
-      
-          <div className="link email justify-content-center" onClick={handleEmailClick}>
-<svg width="25px" height="25px" viewBox="0 -2.5 20 20" xmlns="http://www.w3.org/2000/svg">
+          <div className="links d-flex" >
+            <motion.div className="link email justify-content-center" onClick={handleEmailClick}  whileHover={{ scale: 1.1, rotate: 10 }}
+              transition={{ duration: 0.3 }}>
+            <motion.svg
+             initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }} width="25px" height="25px" viewBox="0 -2.5 20 20" xmlns="http://www.w3.org/2000/svg">
 <g id="SVGRepo_bgCarrier"></g>
                 <g
                   id="SVGRepo_tracerCarrier"
@@ -110,15 +127,23 @@ const handleLeetCodeClick = () => {
                     </g>{" "}
                   </g>{" "}
                 </g>
-</svg>
-</div>
-<div className="link linkedin justify-content-center" onClick={handleLinkedInClick}>
-<svg width="25px" height="25px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+</motion.svg>
+            </motion.div>
+            <motion.div className="link linkedin justify-content-center" onClick={handleLinkedInClick}  whileHover={{ scale: 1.1, rotate: 10 }}
+              transition={{ duration: 0.3 }}>
+            <motion.svg
+             initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }} width="25px" height="25px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
   <path d="M28.778 1.004h-25.56c-1.199 0-2.172 0.964-2.186 2.159v25.672c0.014 1.196 0.987 2.161 2.186 2.161h25.555c1.2 0 2.175-0.963 2.194-2.159v-25.67c-0.019-1.197-0.994-2.161-2.195-2.161zM9.9 26.562h-4.454v-14.311h4.454zM7.674 10.293c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579c1.424 0 2.579 1.154 2.579 2.578 0 1.423-1.154 2.577-2.577 2.577zM26.556 26.562h-4.441v-6.959c0-1.66-0.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h0.058c0.828-1.395 2.326-2.315 4.039-2.315 0.061 0 0.121 0.001 0.181 0.003 4.5 0 5.332 2.962 5.332 6.817v7.855z"></path>
-</svg>
-</div>
-<div className="link github justify-content-center" onClick={handleGitHubClick}>
-<svg width="25px" height="25px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+</motion.svg>
+            </motion.div>
+            <motion.div className="link github justify-content-center" onClick={handleGitHubClick}  whileHover={{ scale: 1.1, rotate: 10 }}
+              transition={{ duration: 0.3 }}>
+            <motion.svg
+             initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }} width="25px" height="25px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                 <g
                   id="SVGRepo_tracerCarrier"
@@ -151,33 +176,54 @@ const handleLeetCodeClick = () => {
                     </g>{" "}
                   </g>{" "}
                 </g>
-</svg>
-</div>
-<div className="link leetcode justify-content-center" onClick={handleLeetCodeClick}>
-              <svg
+</motion.svg>
+            </motion.div>
+            <motion.div className="link leetcode justify-content-center" onClick={handleLeetCodeClick}  whileHover={{ scale: 1.1, rotate: 10 }}
+              transition={{ duration: 0.3 }}>
+            <motion.svg
+             initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
                 width="25px"
                 height="25px"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM8.53 13.47C8.82 13.76 8.82 14.24 8.53 14.53C8.38 14.68 8.19 14.75 8 14.75C7.81 14.75 7.62 14.68 7.47 14.53L5.47 12.53C5.18 12.24 5.18 11.76 5.47 11.47L7.47 9.47C7.76 9.18 8.24 9.18 8.53 9.47C8.82 9.76 8.82 10.24 8.53 10.53L7.06 12L8.53 13.47ZM13.69 9.96L11.69 14.63C11.57 14.91 11.29 15.08 11 15.08C10.9 15.08 10.8 15.06 10.71 15.02C10.33 14.86 10.15 14.42 10.32 14.03L12.32 9.36C12.48 8.98 12.92 8.8 13.3 8.97C13.68 9.14 13.85 9.58 13.69 9.96ZM18.53 12.53L16.53 14.53C16.38 14.68 16.19 14.75 16 14.75C15.81 14.75 15.62 14.68 15.47 14.53C15.18 14.24 15.18 13.76 15.47 13.47L16.94 12L15.47 10.53C15.18 10.24 15.18 9.76 15.47 9.47C15.76 9.18 16.24 9.18 16.53 9.47L18.53 11.47C18.82 11.76 18.82 12.24 18.53 12.53Z"></path>
-              </svg>
-            </div>
+              </motion.svg>
+            </motion.div>
           </div>
-          <Button variant="primary"  href="./my_cv/My_CV.pdf" download="Pratik_Mali-CV" target="_blank" className=' cv_btn'><strong>Download CV</strong></Button>
-
+          <motion.div
+            className="cv-btn-wrapper"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
+          >
+            <Button
+              variant="primary"
+              href="./my_cv/My_CV.pdf"
+              download="Pratik_Mali-CV"
+              target="_blank"
+              className='cv_btn'
+            >
+              <strong>Download CV</strong>
+            </Button>
+          </motion.div>
         </Col>
         <Col md={6} className="text-center">
-          <Image
-            src={Mypic}
-            alt="Pratik"
-            className="img-fluid rounded-circle"
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
+            <Image
+              src={Mypic}
+              alt="Pratik"
+              className="img-fluid rounded-circle"
+            />
+          </motion.div>
         </Col>
       </Row>
-        
     </Container>
   );
 }
-
-

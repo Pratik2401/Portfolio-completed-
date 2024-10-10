@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -23,6 +23,57 @@ import Rock from './assets/images/Projects/rock_paper_scissor.png'
 import './Project.css';
 
 export default function Project() {    
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+        const card = event.currentTarget;
+        const cardRect = card.getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
+
+        const mouseX = event.clientX - cardCenterX;
+        const mouseY = event.clientY - cardCenterY;
+
+        const rotateX = (mouseY / cardRect.height) * 15;
+        const rotateY = (mouseX / cardRect.width) * -15;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    };
+
+    const handleMouseLeave = (event) => {
+        const card = event.currentTarget;
+        card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    };
+
+    const handleMouseDown = (event) => {
+        const card = event.currentTarget;
+        card.style.transform = `rotateX(0deg) rotateY(0deg) scale(0.97)`;
+    };
+
+    const handleMouseUp = (event) => {
+        const card = event.currentTarget;
+        card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1.05)`;
+    };
+
+    const projectCards = document.querySelectorAll('.project_cards');
+
+    projectCards.forEach((card) => {
+        card.addEventListener('mousemove', handleMouseMove);
+        card.addEventListener('mouseleave', handleMouseLeave);
+        card.addEventListener('mousedown', handleMouseDown);
+        card.addEventListener('mouseup', handleMouseUp);
+    });
+
+    return () => {
+        projectCards.forEach((card) => {
+            card.removeEventListener('mousemove', handleMouseMove);
+            card.removeEventListener('mouseleave', handleMouseLeave);
+            card.removeEventListener('mousedown', handleMouseDown);
+            card.removeEventListener('mouseup', handleMouseUp);
+        });
+    };
+}, []);
+
+
   const front_end_projects = [
     {
       image: Todo,
@@ -117,9 +168,10 @@ export default function Project() {
     link: "https://github.com/Pratik2401/CodeSoft-Python/blob/main/Calculator.py",
     tags: 'completed',
   },]
+  
+ 
   return (
     <div id="projects">
-      
       <div className="heading">Projects</div>
       <Container id='skills'>
         <Row>
@@ -140,8 +192,7 @@ export default function Project() {
           ))}
         </Row>
         <Row>
-
-        <div className="sub_heading">Coding Projects</div>
+          <div className="sub_heading">Coding Projects</div>
           {program_project.map((project, index) => (
             <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
               <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>

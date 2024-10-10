@@ -1,3 +1,4 @@
+
 .navbar-brand {
     font-family: 'cocogoose';
     font-weight: bolder;
@@ -26,3 +27,9 @@
     border-radius: 5px;
 }
 
+.active-link {
+    padding: 2px; 
+    color: #cd0ff9 !important;
+    border-bottom: 2px solid rgb(236, 81, 248) !important;
+    border-radius: 5px !important;
+}

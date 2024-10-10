@@ -12,6 +12,7 @@ import JIT from './assets/images/jit.png'
 import Cod_py from './assets/images/codsoft-cpp.jpg'
 import Cod_cpp from './assets/images/codsoft-cpp.jpg'
 import nptelMicrocontroller from './assets/images/nptlMicro.jpg'
+import mlIntern from './assets/images/mlIntern.png'
 
 import './Certification.css';
 
@@ -53,12 +54,18 @@ const certification =
       heading: "Google Cloud Certification",
       description: "Achieved Google Cloud certification, demonstrating proficiency in cloud computing technologies and services.",
     },
-    
     {
       image: nptelMicrocontroller,
       link:"https://www.linkedin.com/posts/pratikmali24_embeddedsystems-microcontrollers-iitb-activity-7227575130330132480-ecHJ?utm_source=share&utm_medium=member_desktop",
       heading: "NPTEL Microcontroller Certificate",
       description: "Achieved certification from the NPTEL IIT-M workshop on Microcontrollers, focusing on Embedded C, Assembly Language, and practical projects."
+    },
+    
+    {
+      image: mlIntern,
+      link:"https://www.linkedin.com/posts/pratikmali24_ai-machinelearning-tensorflow-activity-7240973293015515136-qG-h?utm_source=share&utm_medium=member_desktop",
+      heading: "Virtual Internship AI/ML",
+      description: "The AI/ML Virtual Internship with EduSkills, supported by Google for Developers, focused on advanced machine learning topics such as Object Detection and TensorFlow. This hands-on program provided practical experience and insights into real-world AI applications."
     }
   ]
   
