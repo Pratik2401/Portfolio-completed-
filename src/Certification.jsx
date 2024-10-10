@@ -1,4 +1,3 @@
-import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,7 +12,7 @@ import Cod_py from './assets/images/codsoft-cpp.jpg'
 import Cod_cpp from './assets/images/codsoft-cpp.jpg'
 import nptelMicrocontroller from './assets/images/nptlMicro.jpg'
 import mlIntern from './assets/images/mlIntern.png'
-
+import npteldatasci from './assets/images/npteldatasci.png'
 import './Certification.css';
 
 const certification = 
@@ -66,7 +65,13 @@ const certification =
       link:"https://www.linkedin.com/posts/pratikmali24_ai-machinelearning-tensorflow-activity-7240973293015515136-qG-h?utm_source=share&utm_medium=member_desktop",
       heading: "Virtual Internship AI/ML",
       description: "The AI/ML Virtual Internship with EduSkills, supported by Google for Developers, focused on advanced machine learning topics such as Object Detection and TensorFlow. This hands-on program provided practical experience and insights into real-world AI applications."
-    }
+    },
+    {
+      image: npteldatasci,
+      link:"https://www.linkedin.com/posts/pratikmali24_nptel-datasciencemastery-pythonexpertise-activity-7247437225905319936-pxRT?utm_source=share&utm_medium=member_desktop",
+      heading: "Python With Data Science",
+      description: "Offered by NPTEL, provided a comprehensive introduction to Python programming within the context of data science. It covered essential libraries such as NumPy, Pandas, and Matplotlib, enabling practical data manipulation and visualization."
+}
   ]
   
 

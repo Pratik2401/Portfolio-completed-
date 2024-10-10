@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './Education.css'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -46,7 +46,7 @@ Participated in various extracurricular activities including olympaids of maths 
    <h3 className="vertical-timeline-element-title">Open Source/IoT Lead</h3>
   <h4 className="vertical-timeline-element-subtitle">Google Developers Group</h4>
   <p>
-  In charge of leading the GDG MET student club's open source and IoT projects. leads initiatives, encourages teamwork, and interacts with the public to further technology advancement.
+  In charge of leading the GDG MET student club&apos;s open source and IoT projects. leads initiatives, encourages teamwork, and interacts with the public to further technology advancement.
   <br />
   <a href="https://gdg.community.dev/gdg-on-campus-met-institute-of-engineering-bhujbal-knowledge-city-nashik-india/" className='contact_me'>Organization Website</a>
 </p>
@@ -60,7 +60,7 @@ Participated in various extracurricular activities including olympaids of maths 
    <h3 className="vertical-timeline-element-title">Internship</h3>
   <h4 className="vertical-timeline-element-subtitle">Your Company Could Be on My Resume!</h4>
   <p>
-  I'm currently seeking an internship opportunity where I can contribute and learn. If your company is looking for a dedicated intern, <a href="mailto:pratikmali242005@gmail.com" className='contact_me'>contact me</a> to explore how we can work together!
+  I&apos;m currently seeking an internship opportunity where I can contribute and learn. If your company is looking for a dedicated intern, <a href="mailto:pratikmali242005@gmail.com" className='contact_me'>contact me</a> to explore how we can work together!
 </p>
   </VerticalTimelineElement>
 
@@ -70,7 +70,7 @@ Participated in various extracurricular activities including olympaids of maths 
     date="2022 - 2026"
    
   > 
-    <h3 className="vertical-timeline-element-title">Bachelor's Degree</h3>
+    <h3 className="vertical-timeline-element-title">Bachelor&apos;s Degree</h3>
     <h4 className="vertical-timeline-element-subtitle">Mumbai Educational Trust Institute of Engineering</h4>
     <p>
     Completed higher secondary education at MET Institute of Science and Commerce with a major in Science and optional subject as Information Technology. Developed a passion for programming.
