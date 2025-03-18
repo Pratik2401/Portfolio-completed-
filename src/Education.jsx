@@ -54,13 +54,14 @@ Participated in various extracurricular activities including olympaids of maths 
 
   <VerticalTimelineElement
     className="vertical-timeline-element--work positions"
-    date="???"
-   
+    date="Jan 25- Ongoing"
   > 
    <h3 className="vertical-timeline-element-title">Internship</h3>
-  <h4 className="vertical-timeline-element-subtitle">Your Company Could Be on My Resume!</h4>
+  <h4 className="vertical-timeline-element-subtitle">CHRP Technologies</h4>
   <p>
-  I&apos;m currently seeking an internship opportunity where I can contribute and learn. If your company is looking for a dedicated intern, <a href="mailto:pratikmali242005@gmail.com" className='contact_me'>contact me</a> to explore how we can work together!
+  As an AI/Data Intern at CHRP Technologies, I optimized the annotator UI, making it three times faster for a smoother user experience. I am currently working on converting bounding box coordinates to polygon coordinates to improve annotation precision. Alongside this, I am exploring and learning about training computer vision models to enhance automation and accuracy in annotation tasks.
+  <br></br>
+  <a href="https://chrptechnologies.com/" className='contact_me'>Organization Website</a>
 </p>
   </VerticalTimelineElement>
 
