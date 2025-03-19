@@ -1,4 +1,4 @@
-import React from 'react';
+import ParticlesBackground from './Particle';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import './App.css';
@@ -14,6 +14,7 @@ import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <>
+    <ParticlesBackground/>
     <Analytics/>
     <Router>
       <Routes>

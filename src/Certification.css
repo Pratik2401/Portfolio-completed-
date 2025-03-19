@@ -4,4 +4,5 @@
 }
 .certificates_card{
     overflow: hidden;
+    backdrop-filter: 5px !important;
 }

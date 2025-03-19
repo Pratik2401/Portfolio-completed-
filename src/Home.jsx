@@ -19,6 +19,7 @@ export default function Home() {
       strings: [
         "UI Designer",
         "Web Developer",
+        "MERN Stack Freelancer",
         "IoT Enthusiast",
         "Microprocessor Aficionado",
       ],

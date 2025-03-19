@@ -1,3 +1,25 @@
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+    padding-bottom: 100px;
+}
+
+/* Animated Line (Inside Timeline) */
+.animated-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 5px;
+    background: #cd0ff9;
+    z-index: 0;
+}
+
+/* Make sure the timeline line is only inside VerticalTimeline */
+.vertical-timeline::before {
+    background: #cd0ff9 !important;
+}
+
+/* Icons */
 .vertical-timeline-element-icon {
     scale: 0.25;
     background-color: #cd0ff9;
@@ -7,39 +29,81 @@
       0 0 30px #cd0ff9,
       0 0 40px #be4ae4,
       0 0 50px #be4ae4 !important;
-  }
-.vertical-timeline-element-date{
-    color: rgb(255, 255, 255) !important;
+}
+
+/* Date Styling */
+.vertical-timeline-element-date {
+    color: white !important;
     opacity: 1 !important;
 }
-.vertical-timeline-element-content{
-    background-color: transparent !important;
+
+/* Timeline Box */
+.vertical-timeline-element-content {
+    background-color: rgba(0, 0, 0, 0.074) !important;
     border: 2px solid #cd0ff9;
-    box-shadow:  0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 30px #cd0ff9,
-    0 0 40px #be4ae4,
-    0 0 50px #be4ae4 !important;
+    box-shadow: 
+        0 0 5px #ffffff,
+        0 0 10px #ffffff,
+        0 0 20px #cd0ff9,
+        0 0 30px #be4ae4,
+        0 0 30px #be4ae4 !important;
     border-radius: 10% !important;
     color: white !important;
 }
 
-.vertical-timeline-element-content:hover{
-    transition: scale 0.5s;
-    scale: 1.05;
-    color: white !important;
+/* Hover Effect */
+.vertical-timeline-element-content:hover {
+  
     background: rgba(239, 99, 247, 0.255) !important; 
-    transform: scale(1.05); 
+
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.vertical-timeline-element-content-arrow{
+/* Remove default arrow */
+.vertical-timeline-element-content-arrow {
     display: none;
 }
 
-.vertical-timeline{
-    margin-top: 100px !important;
+/* Adjusts the overall height */
+#education {
+    min-height: 180vh;
 }
-.contact_me{
+
+/* Link Styling */
+.contact_me {
     color: #cd0ff9;
+    text-decoration: none;
 }
+
+.contact_me:hover {
+    text-decoration: underline;
+}
+
+  .vertical-timeline::before {
+    background: linear-gradient(to bottom, #cd0ff9, #8806ce);
+    width: 4px !important;
+    animation: growLine 2s ease-out forwards;
+  }
+  
+  @keyframes growLine {
+    from {
+      height: 0;
+    }
+    to {
+      height: 100%;
+    }
+  }
+  
+  /* Hide elements initially */
+  .timeline-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Fade in when visible */
+  .timeline-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

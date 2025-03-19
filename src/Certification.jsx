@@ -90,7 +90,7 @@ const certification = [
 
 const MyWork = () => {
   return (
-    <Container id='certification'>
+    <div id='certification'>
       
     <div className="heading" style={{
   fontFamily: 'cocogoose',
@@ -115,7 +115,7 @@ const MyWork = () => {
         </Col>
       ))}
     </Row>
-  </Container>
+  </div>
 
   );
 }

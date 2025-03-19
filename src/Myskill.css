@@ -2,28 +2,47 @@
   margin-top: 100px !important;
 }
 
+.skill-swiper{
+  padding: 40px 0px;
+}
+
+.skill-swiper .swiper-pagination .swiper-pagination-bullet {
+  background-color: #cd0ff9;
+
+}
+#skills{
+  margin: 0;
+  padding: 0;
+  
+}
 .card{
-    background-color: transparent !important;
+  backdrop-filter: blur(5px);
     background-color: transparent !important;
     border: 2px solid #cd0ff9;
     box-shadow:  0 0 5px #ffffff,
     0 0 10px #ffffff,
-    0 0 30px #cd0ff9,
-    0 0 40px #be4ae4,
-    0 0 50px #be4ae4 !important;
+    0 0 20px #cd0ff9,
+    0 0 30px #be4ae4,
+    0 0 30px #be4ae4 !important;
     border-radius: 10% !important;
     margin: 10px;
     text-align: center !important;
+    margin: 40px 0;
 }
 
-.card:hover{
-    transition: scale 0.5s;
-    scale: 1.1;
-    color: white !important;
-    background: rgba(239, 99, 247, 0.255) !important; 
-    transform: scale(1.05); 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+.domain-heading{
+  margin-left: 20px;
+  color: white;
 }
+
+.completed-card,.ongoing-card{
+
+  transition: translate 0.5s;
+}
+.completed-card:hover,.ongoing-card:hover{
+  translate:0 -20px;
+}
+
 
 .my_skills_cards {
     width: 5rem !important;

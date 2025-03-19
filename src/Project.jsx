@@ -73,103 +73,103 @@ export default function Project() {
     };
 }, []);
 
+const front_end_projects = [
+  {
+    image: Todo,
+    heading: 'TO-DO List',
+    description: 'A task management app built with HTML, CSS, and JavaScript. Users can add, delete, and prioritize tasks with extra descriptions. The interface is clean and user-friendly, making daily task management seamless.',
+    link: "https://pratik2401.github.io/TO-DO-List/",
+    tags: 'completed',
+  },
+  {
+    image: Spot,
+    heading: 'Spot Seekers',
+    description: 'A ReactJS-based smart parking system that fetches sensor values via XML and updates them in real-time. Uses serial communication, Bootstrap, and useEffect for a smooth user experience. Login: admin/admin.',
+    link: "https://projectparking.netlify.app/",
+    tags: 'completed',
+  },
+  {
+    image: Quiz,
+    heading: 'Quiz Generator',
+    description: 'An interactive quiz app built with HTML, CSS, JSON, and JavaScript. Features typed.js for typing effects and local storage for saving quiz data. Supports multiple question types for an engaging experience.',
+    link: "https://pratik2401.github.io/quiz-generator/",
+    tags: 'completed',
+  },
+  {
+    image: Blog,
+    heading: 'Blog Website',
+    description: 'A blogging platform using HTML, CSS, JavaScript, and Bootstrap. It allows multiple users to create, manage, and store blog posts with a simple and elegant interface, utilizing local storage.',
+    link: "https://pratik2401.github.io/Blog-Website/",
+    tags: 'completed',
+  },
+  {
+    image: Weather,
+    heading: 'Weather App',
+    description: 'A ReactJS weather app using REST API. Features real-time weather updates with useContext and createContext for state management. Offers a clean, intuitive interface for quick weather insights.',
+    link: "https://castingweather.netlify.app/",
+    tags: 'completed',
+  },
+  {
+    image: Dyazo,
+    heading: 'Dyazo-Ecommerce',
+    description: 'An e-commerce website redesigned with HTML, CSS, JavaScript, and Bootstrap. Implements Soft UI (Neuromorphism) for a modern look and ensures responsive design for a seamless shopping experience.',
+    link: "https://dyazo.netlify.app/",
+    tags: 'completed',
+  },
+  {
+    image: News,
+    heading: 'News APP',
+    description: 'A ReactJS news app fetching the latest news via REST API. Uses createContext and useContext for state management, delivering real-time news updates with a user-friendly layout.',
+    link: "https://github.com/Pratik2401/News",
+    tags: 'completed',
+  },
+  {
+    image: Text,
+    heading: 'Text Editor',
+    description: 'A React-based text editor with essential editing features. Offers a smooth and modern interface for writing and formatting text efficiently.',
+    link: "https://github.com/Pratik2401/Text_Editor",
+    tags: 'completed',
+  },
+  {
+    image: Textsaver,
+    heading: 'Text Saver',
+    description: 'A MERN stack app allowing users to save text and images with a shareable URL. A convenient solution for quickly storing and sharing notes or content.',
+    link: "https://savetext.vercel.app/",
+    tags: 'completed',
+  },
+  {
+    image: contactApp,
+    heading: 'Contact Sphere',
+    description: 'A MERN stack contact management app featuring JWT authentication, bcrypt encryption, and a React Bootstrap UI. Ensures secure and smooth user experience.',
+    link: "https://spherecontact.vercel.app/",
+    tags: 'completed',
+  }
+];
 
-  const front_end_projects = [
-    {
-      image: Todo,
-      heading: 'TO-DO List',
-      description: 'This project is built with HTML, CSS, and JavaScript. It allows for task addition, deletion, priority setting, and adding extra descriptions. It implements a clean and user-friendly interface for efficiently managing daily tasks.',
-      link: "https://pratik2401.github.io/TO-DO-List/",
-      tags: 'completed',
-    },
-    {
-      image: Spot,
-      heading: 'Spot Seekers',
-      description: 'Developed using ReactJS, XML, useEffect, serial communication, useState, and Bootstrap, this project accepts sensor values through XML and updates them on the website in real-time. It showcases a robust IoT solution for smart parking.UserName:admin Password:admin',
-      link: "https://projectparking.netlify.app/",
-      tags: 'completed',
-    },
-    {
-      image: Quiz,
-      heading: 'Quiz Generator',
-      description: 'Created with HTML, CSS, JSON, and JavaScript, this interactive quiz application uses typed.js for dynamic typing effects and local storage for saving quiz data. It supports multiple question types and offers a fun, engaging user experience.',
-      link: "https://pratik2401.github.io/quiz-generator/",
-      tags: 'completed',
-    },
-    {
-      image: Blog,
-      heading: 'Blog Website',
-      description: 'Implemented using HTML, CSS, JavaScript, Bootstrap, and local storage, this blogging platform supports multiple users with individual blog post management. It provides a simple yet elegant platform for writing and sharing blog posts.',
-      link: "https://pratik2401.github.io/Blog-Website/",
-      tags: 'completed',
-    },
-    {
-      image: Weather,
-      heading: 'Weather App',
-      description: 'Built with ReactJS and REST API, this weather application utilizes createContext and useContext for state management. It provides real-time weather updates with an intuitive user interface, making it easy to check the weather at a glance.',
-      link: "https://castingweather.netlify.app/",
-      tags: 'completed',
-    },
-    {
-      image: Dyazo,
-      heading: 'Dyazo-Ecommerce',
-      description: 'This e-commerce site is developed with HTML, CSS, and JavaScript. It features a redesigned version of the Dyazo Company website with Soft UI (Neuromorphism) and Bootstrap for responsiveness, creating a modern and aesthetically pleasing online store.',
-      link: "https://dyazo.netlify.app/",
-      tags: 'completed',
-    },
-    {
-      image: News,
-      heading: 'News APP',
-      description: 'Created using ReactJS and REST API for fetching news, this application uses createContext and useContext for state management. It delivers the latest news updates with a clean and readable layout, ensuring users stay informed.',
-      link: "https://github.com/Pratik2401/News",
-      tags: 'completed',
-    },
-    {
-      "image": Text,
-      "heading": "Text Editor",
-      "description": "Designed and implemented using React, this project showcases a modern and efficient text editor. It features essential text editing functionalities with a user-friendly interface.",
-      "link": "https://github.com/Pratik2401/Text_Editor",
-      "tags": "completed"
-    },
-    {
-      "image": Textsaver,
-      "heading": "Text Saver",
-      "description": "Built with the MERN stack, this project allows users to save text and images, generating a sharable URL. It's an innovative solution for quickly sharing notes, images, or other information.",
-      "link": "https://savetext.vercel.app/",
-      "tags": "completed"
-    },
-    {
-      "image": contactApp,
-      "heading": "Contact Sphere",
-      "description": "A MERN stack contact management app with JWT authentication, bcrypt encryption, React Bootstrap UI, and seamless API integration. It showcases secure, user-friendly design and smooth navigation.",
-      "link": "https://spherecontact.vercel.app/",
-      "tags": "completed"
-    }
-  ];
-  
-  let program_project=[{
+let program_project = [
+  {
     image: Rock,
     heading: 'Rock Paper Scissor - Console Based',
-    description: 'This console-based game, developed with Python, implements the classic Rock Paper Scissors game with a simple interface. It enhances user experience with clear instructions and interactive gameplay.',
+    description: 'A Python-based console game implementing the classic Rock Paper Scissors. Features clear instructions and interactive gameplay for an engaging experience.',
     link: "https://github.com/Pratik2401/CodeSoft-Python/blob/main/Rock%20paper%20scissor.py",
     tags: 'completed',
   },
   {
     image: Password,
     heading: 'Password Generator - Console Based',
-    description: 'Developed using Python, this tool generates secure passwords with varying complexity. It is essential for enhancing cybersecurity, providing users with strong and unique passwords.',
+    description: 'A Python program that generates secure passwords with varying complexity, helping users create strong, unique passwords for better cybersecurity.',
     link: "https://github.com/Pratik2401/CodeSoft-Python/blob/main/Password%20Generator.py",
     tags: 'completed',
   },
   {
     image: Calculator,
     heading: 'Calculator - Console Based',
-    description: 'This basic calculator application, developed with Python, performs essential arithmetic operations with a user-friendly console interface. It serves as a foundational project for understanding Python programming concepts.',
+    description: 'A simple Python calculator performing basic arithmetic operations. Designed for easy use in a console interface, making it a great beginner-friendly project.',
     link: "https://github.com/Pratik2401/CodeSoft-Python/blob/main/Calculator.py",
     tags: 'completed',
-  },]
-  
- 
+  }
+];
+
   return (
     <div id="projects">
       <div className="heading">Projects</div>
