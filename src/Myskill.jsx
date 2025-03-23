@@ -212,7 +212,7 @@ const MyWork = () => {
     </motion.div>
 
     {Object.keys(groupedSkills).map((domain, idx) => {
-      const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+      const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
       return (
         <motion.div
@@ -220,18 +220,18 @@ const MyWork = () => {
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: idx * 0.2 }}
+          transition={{ duration: 0.8, delay: idx * 0.5 }}
         >
           <h2 className="domain-heading">{domain}</h2>
           <Swiper
               modules={[ Pagination, Autoplay]}
-  spaceBetween={10} // Reduced spacing for smoother transition
+  spaceBetween={7} // Reduced spacing for smoother transition
   slidesPerView={1}
   centeredSlides={true}
   breakpoints={{
     320: { slidesPerView: 1.07, spaceBetween: 1 }, // Mobile view (show part of next/prev slide)
     768: { slidesPerView: 2.4, spaceBetween: 15 }, // Tablet view
-    1024: { slidesPerView: 3.5, spaceBetween: 15 }, // Desktop view
+    1024: { slidesPerView: 3.8, spaceBetween: 15 }, // Desktop view
   }}
   loop={true}
   
