@@ -3,36 +3,29 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link as ScrollLink } from 'react-scroll';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './Navbar.css';
 
 const CustomNavbar = () => {
-  const [navbarBg, setNavbarBg] = useState('transparent');
-  const controls = useAnimation();
+  const [navbarClass, setNavbarClass] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      if (scrollPosition > 100) {
-        setNavbarBg('#857d7d54');
+      if (window.scrollY > 100) {
+        setNavbarClass('scrolled-navbar');
       } else {
-        setNavbarBg('transparent');
+        setNavbarClass('');
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  useEffect(() => {
-    controls.start({ backgroundColor: navbarBg, transition: { duration: 0.5 } });
-  }, [navbarBg, controls]);
-
   return (
-    <Navbar expand="lg" className="justify-content-between sticky-top">
+    <Navbar expand="lg" className={`justify-content-between sticky-top ${navbarClass}`}>
       <Container>
         <Navbar.Brand
           as={ScrollLink}
@@ -46,91 +39,26 @@ const CustomNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-light" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="fs-4">
-            <Nav.Link
-              as={ScrollLink}
-              to="home"
-              smooth={true}
-              duration={100}
-              spy={true}
-              exact="true"
-              activeClass="active-link"
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              as={ScrollLink}
-              to="education"
-              smooth={true}
-              duration={100}
-              spy={true}
-              exact="true"
-              activeClass="active-link"
-            >
-              Education
-            </Nav.Link>
-            <Nav.Link
-              as={ScrollLink}
-              to="skills"
-              smooth={true}
-              duration={100}
-              spy={true}
-              exact="true"
-              activeClass="active-link"
-            >
-              MySkills
-            </Nav.Link>
-            <Nav.Link
-              as={ScrollLink}
-              to="projects"
-              smooth={true}
-              duration={100}
-              spy={true}
-              exact="true"
-              activeClass="active-link"
-            >
-              Projects
-            </Nav.Link>
-            <Nav.Link
-              as={ScrollLink}
-              to="certification"
-              smooth={true}
-              duration={100}
-              spy={true}
-              exact="true"
-              activeClass="active-link"
-            >
-              Certification
-            </Nav.Link>
-            <Nav.Link
-              as={ScrollLink}
-              to="about"
-              smooth={true}
-              duration={100}
-              spy={true}
-              exact="true"
-              activeClass="active-link"
-            >
-              About
-            </Nav.Link>
-            <Nav.Link
-              as={ScrollLink}
-              to="contact"
-              smooth={true}
-              duration={100}
-              spy={true}
-              exact="true"
-              activeClass="active-link"
-            >
-              Contact
-            </Nav.Link>
+            {['home', 'education', 'skills', 'projects', 'certification', 'about', 'contact'].map(
+              (section) => (
+                <Nav.Link
+                  key={section}
+                  as={ScrollLink}
+                  to={section}
+                  smooth={true}
+                  duration={100}
+                  spy={true}
+                  exact="true"
+                  activeClass="active-link"
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </Nav.Link>
+              )
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <motion.div
-        className="navbar-background"
-        animate={controls}
-        style={{ height: '100%' }}
-      />
+      <motion.div className="navbar-background" />
     </Navbar>
   );
 };

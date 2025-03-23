@@ -15,7 +15,7 @@ import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <>
-    <MouseTrail />
+    
     <ParticlesBackground/>
     <Analytics/>
     <Router>

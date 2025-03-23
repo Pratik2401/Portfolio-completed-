@@ -1,7 +1,13 @@
 .homebody {
     margin-top: 4vw;
   }
-  
+
+
+  .myImage{
+    background-color: #be4ae4;
+    
+  }
+
   .home_name {
     color: #cd0ff9;
     text-shadow: 0 0 16px #cd0ff9;

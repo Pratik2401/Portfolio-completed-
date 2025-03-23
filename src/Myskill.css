@@ -8,28 +8,80 @@
 
 .skill-swiper .swiper-pagination .swiper-pagination-bullet {
   background-color: #cd0ff9;
-
 }
 #skills{
   margin: 0;
   padding: 0;
   
 }
-.card{
+
+
+.skillCard, .card {
   backdrop-filter: blur(5px);
-    background-color: transparent !important;
-    border: 2px solid #cd0ff9;
-    box-shadow:  0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 20px #cd0ff9,
-    0 0 30px #be4ae4,
-    0 0 30px #be4ae4 !important;
-    border-radius: 10% !important;
-    margin: 10px;
-    text-align: center !important;
-    margin: 40px 0;
+  background-color: transparent !important;
+  border: 2px solid #cd0ff9;
+  box-shadow: 0 0 2px #ffffff,
+              0 0 5px #ffffff,
+              0 0 10px #cd0ff9,
+              0 0 15px #be4ae4,
+              0 0 15px #be4ae4 !important;
+  border-radius: 10% !important;
+  margin: 10px;
+  text-align: center !important;
+  margin: 40px 0;
+  transition: color 0.4s ease;
+  overflow: hidden;
+  position: relative;
 }
 
+/* Before for top fill */
+.skillCard::before {
+  content: '';
+  position: absolute;
+  top: -100%; /* Start from outside */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ce0ff975; /* Purple color */
+  transition: top 1s ease;
+  z-index: -1;
+}
+
+/* After for bottom fill */
+.skillCard::after {
+  content: '';
+  position: absolute;
+  bottom: -100%; /* Start from outside */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ce0ff97a; /* Darker purple */
+  transition: bottom 1s ease;
+  z-index: -1;
+}
+
+/* Hover Effect */
+.skillCard:hover::before {
+  top: 0; /* Move to fill from top */
+}
+
+.skillCard:hover::after {
+  bottom: 0; /* Move to fill from bottom */
+}
+
+.skillCard:hover {
+  color: #fff;
+  
+  box-shadow: 0 0 5px #ffffff,
+              0 0 10px #ffffff,
+              0 0 20px #cd0ff9,
+              0 0 30px #be4ae4,
+              0 0 30px #be4ae4 !important;
+}
+
+.skillCard:hover .card-title{
+  color: white !important;
+}
 .domain-heading{
   margin-left: 20px;
   color: white;

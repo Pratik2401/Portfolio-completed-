@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import Mypic from "./assets/images/mypic.jpg";
+import Mypic from "./assets/images/mypic2.png";
 import Typed from "typed.js";
 import { motion } from 'framer-motion';
 import "./font.css";
@@ -216,11 +216,12 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.2 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
+            className="image-container"
           >
             <Image
               src={Mypic}
               alt="Pratik"
-              className="img-fluid rounded-circle"
+              className="img-fluid rounded-circle myImage"
             />
           </motion.div>
         </Col>

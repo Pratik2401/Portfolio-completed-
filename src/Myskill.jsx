@@ -250,7 +250,7 @@ const MyWork = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Card
-                    className={skill.status === "completed" ? "completed-card" : "ongoing-card"}
+                    className={ skill.status === "completed" ? "completed-card skillCard" : "ongoing-card skillCard"}
                     style={{ width: "18rem", height: "18rem", position: "relative" }}
                   >
                     {skill.status === "ongoing" && (
