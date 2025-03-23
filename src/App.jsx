@@ -6,6 +6,7 @@ import Admin from './Admin';
 import Home from './Home';
 import Education from './Education';
 import Myskill from './Myskill';
+import MouseTrail from './Mouse';
 import Project from './Project';
 import Certification from './Certification';
 import About from './About';
@@ -14,6 +15,7 @@ import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <>
+    <MouseTrail />
     <ParticlesBackground/>
     <Analytics/>
     <Router>

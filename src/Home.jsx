@@ -198,7 +198,7 @@ export default function Home() {
             className="cv-btn-wrapper"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
           >
             <Button
               variant="primary"
@@ -213,9 +213,9 @@ export default function Home() {
         </Col>
         <Col md={6} className="text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.2 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
             <Image
               src={Mypic}

@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-
+import Kumbhathon from './assets/images/Kumbhathon.png'
 import Todo from './assets/images/Projects/to_do.png'
 import Blog from './assets/images/Projects/blog_web.png'
 import Spot from './assets/images/Projects/parking_web.png'
@@ -21,6 +21,7 @@ import Password from './assets/images/Projects/password_manager.png'
 import Rock from './assets/images/Projects/rock_paper_scissor.png'
 
 import './Project.css';
+import { link } from 'framer-motion/client';
 
 export default function Project() {    
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Project() {
         const rotateX = (mouseY / cardRect.height) * 15;
         const rotateY = (mouseX / cardRect.width) * -15;
 
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
 
     const handleMouseLeave = (event) => {
@@ -170,10 +171,19 @@ let program_project = [
   }
 ];
 
+let freelancing=[
+  {
+    image:Kumbhathon,
+    heading:"Kumbhathon",
+    description:"Developed a WordPress website for Kumbhathon, optimizing performance, accessibility, and content management. Showcased initiatives, events, and innovation challenges with a seamless user experience. Integrated custom themes, plugins, and SEO best practices to enhance visibility and engagement.",
+    link:"https://kumbhathon.com/",
+    tags:'completed'
+  }
+]
   return (
     <div id="projects">
       <div className="heading">Projects</div>
-      <Container id='skills'>
+      <Container id='projects'>
         <Row>
           <div className="sub_heading">FrontEnd Projects</div>
           {front_end_projects.map((project, index) => (
@@ -194,6 +204,24 @@ let program_project = [
         <Row>
           <div className="sub_heading">Coding Projects</div>
           {program_project.map((project, index) => (
+            <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
+              <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>
+                <Card.Img variant="top" src={project.image} className="card-img-top project_images" />
+                <Card.Body>
+                  <Card.Title>{project.heading}</Card.Title>
+                  <Card.Text>
+                    {project.description}
+                  </Card.Text>
+                  <Button variant="primary" href={project.link} target="_blank" className='project_vist'><strong>Vist</strong></Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+
+        <Row>
+          <div className="sub_heading">Freelance Projects</div>
+          {freelancing.map((project, index) => (
             <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
               <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>
                 <Card.Img variant="top" src={project.image} className="card-img-top project_images" />

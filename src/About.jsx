@@ -154,16 +154,7 @@ export default function About() {
         </Row>
 
         <Row>
-          <Col md={6}>
-            <div className="grid-item d-flex justify-content-center">
-              <Image
-                src={aboutHobby}
-                alt="Pratik"
-                className="img-fluid rounded-circle about_img_size"
-              />
-            </div>
-          </Col>
-          <Col md={6}>
+        <Col md={6}>
             <div className="grid-item d-flex justify-content-center">
               <div className="about_subheading">
                 <p className="head"
@@ -182,6 +173,16 @@ export default function About() {
               </div>
             </div>
           </Col>
+          <Col md={6}>
+            <div className="grid-item d-flex justify-content-center">
+              <Image
+                src={aboutHobby}
+                alt="Pratik"
+                className="img-fluid rounded-circle about_img_size"
+              />
+            </div>
+          </Col>
+          
         </Row>
 
         <Row>

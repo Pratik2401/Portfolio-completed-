@@ -10,7 +10,6 @@
 .project_cards:hover {
     color: white !important;
     background: rgba(239, 99, 247, 0.255) !important; 
-    transform: scale(1.05); 
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
