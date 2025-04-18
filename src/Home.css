@@ -39,6 +39,7 @@
     margin: 0 7px;
     fill: #cd0ff9;
     transition: 0.5s;
+    cursor: pointer;
   }
   
   .link:hover {

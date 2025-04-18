@@ -86,7 +86,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              Hi, It's <span className="home_name">Pratik</span>
+              Hi, It&apos;s <span className="home_name">Pratik</span>
             </motion.p>
             <motion.p
               className="field fs-2"
@@ -94,7 +94,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              I'm a <span className="typed"></span>
+              I&apos;m a <span className="typed"></span>
             </motion.p>
             <motion.p
               className="info fs-5"
