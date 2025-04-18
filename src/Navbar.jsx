@@ -8,7 +8,7 @@ import './Navbar.css';
 
 const CustomNavbar = () => {
   const [navbarClass, setNavbarClass] = useState('');
-
+  const [offset, setOffset] = useState(-window.innerHeight / 2);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -46,7 +46,8 @@ const CustomNavbar = () => {
                   as={ScrollLink}
                   to={section}
                   smooth={true}
-                  duration={100}
+                offset={offset}
+                  duration={500}
                   spy={true}
                   exact="true"
                   activeClass="active-link"

@@ -212,15 +212,15 @@ const MyWork = () => {
     </motion.div>
 
     {Object.keys(groupedSkills).map((domain, idx) => {
-      const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+      const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.1 });
 
       return (
         <motion.div
           key={idx}
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 70 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: idx * 0.5 }}
+          transition={{ duration: 0.3, delay: idx * 0.1 }}
         >
           <h2 className="domain-heading">{domain}</h2>
           <Swiper

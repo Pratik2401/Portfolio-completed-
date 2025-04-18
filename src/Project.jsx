@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+
+import { useInView } from 'react-intersection-observer'; 
 import Button from 'react-bootstrap/Button';
 import Kumbhathon from './assets/images/Kumbhathon.png'
 import Todo from './assets/images/Projects/to_do.png'
@@ -19,12 +21,12 @@ import contactApp from './assets/images/Projects/contactapp.png'
 import Calculator from './assets/images/Projects/calculator.png'
 import Password from './assets/images/Projects/password_manager.png'
 import Rock from './assets/images/Projects/rock_paper_scissor.png'
-
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import './Project.css';
-
+import { CardFooter } from 'react-bootstrap';
+import React, { useRef } from 'react';
 
 export default function Project() {    
- 
 
   const front_end_projects = [
     {
@@ -146,71 +148,227 @@ export default function Project() {
       tech: ['WordPress', 'UI Design', 'Responsive Design']
     }
   ];
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6 
+      }
+    },
+  };
+  
+  const buttonVariants = {
+    hidden: { opacity: 0, x: 50 }, // Start from the right (50px)
+    show: {
+      opacity: 1,
+      x: 0, // Move to its original position
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.2, // Apply stagger effect to each button individually when showing
+      },
+    },
+    exit: {
+      opacity: 0,
+      x: 50, // Move to the right again
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
   
   return (
     <div id="projects">
       <div className="heading">Projects</div>
-      <Container id='projects'>
-        <Row>
-          <div className="sub_heading">FrontEnd Projects</div>
-          {front_end_projects.map((project, index) => (
-            <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
-              <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>
-                <Card.Img src={project.image} className=" project_images" />
-                <Card.Body>
-                  <Card.Title>{project.heading}</Card.Title>
-                  {project.tech.map((tech, index) => (
-      <Button  key={index} className="tech-tag">{tech}</Button>
-    ))}
-                  <Card.Text>
-                    {project.description}
-                  </Card.Text>
-                  <Button variant="primary" href={project.link} target="_blank" className='project_vist'><strong>Visit</strong></Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+      <Container>
+      <Row>
+    <div className="sub_heading">Web Dev Projects</div>
+    {front_end_projects.map((project, index) => {
+      const { ref, inView } = useInView({
+        triggerOnce: false, // Trigger both on enter and leave
+        threshold: 0.65, // Set how much of the element needs to be in view before triggering
+      });
+
+      return (
+        <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? 'show' : 'hidden'} // Trigger animation when inView is true or false
+            variants={cardVariants}
+            transition={{
+              delay: (index+1) * 1, // Adjust stagger delay based on index
+              duration: 0.6,
+            }}
+          >
+            <Card
+              className="project_cards"
+              style={{ width: '18rem', height: 'auto', position: 'relative' }}
+        
+            >
+              <Card.Img src={project.image} className="project_images" />
+              <Card.Body>
+                <Card.Title>{project.heading}</Card.Title>
+                <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {project.tech.map((tech, idx) => (
+                  <motion.div
+  key={idx}
+  initial="hidden"
+  animate={inView ? 'show' : 'hidden'}
+  variants={buttonVariants}
+  transition={{ delay: idx * 0.2 }} // Stagger the delay based on the index
+  style={{
+    marginRight: '10px', 
+    marginBottom: '10px', 
+    display: 'flex', 
+    justifyContent: 'center', // Centers buttons horizontally
+    alignItems: 'center', // Centers buttons vertically (if needed)
+    flexWrap: 'wrap', // Wraps buttons to the next line if they overflow
+  }}
+>
+  <Button className="tech-tag">
+    {tech}
+  </Button>
+</motion.div>
+                ))}
+              </div>
+                <Card.Text>{project.description}</Card.Text>
+              </Card.Body>
+              <CardFooter>
+                <Button variant="primary" href={project.link} target="_blank" className="project_vist">
+                  <strong>Visit</strong>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
+        </Col>
+      );
+    })}
+  </Row>
+
         <Row>
           <div className="sub_heading">Coding Projects</div>
-          {program_project.map((project, index) => (
-            <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
-              <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>
-                <Card.Img variant="top" src={project.image} className="card-img-top project_images" />
-                <Card.Body>
-                  <Card.Title>{project.heading}</Card.Title>
-                  {project.tech.map((tech, index) => (
-      <Button  key={index} className="tech-tag">{tech}</Button>
-    ))}
-                  <Card.Text>
-                    {project.description}
-                  </Card.Text>
-                  <Button variant="primary" href={project.link} target="_blank" className='project_vist'><strong>Visit</strong></Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          {program_project.map((project, index) => {
+            const { ref, inView } = useInView({ triggerOnce: false });
+
+            return (
+              <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? 'show' : 'hidden'} // Trigger animation when inView is true or false
+            variants={cardVariants}
+            transition={{
+              delay: (index+1) * 1, // Adjust stagger delay based on index
+              duration: 0.6,
+            }}
+          >
+            <Card
+              className="project_cards"
+              style={{ width: '18rem', height: 'auto', position: 'relative' }}
+        
+            >
+              <Card.Img src={project.image} className="project_images" />
+              <Card.Body>
+                <Card.Title>{project.heading}</Card.Title>
+                <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {project.tech.map((tech, idx) => (
+                  <motion.div
+  key={idx}
+  initial="hidden"
+  animate={inView ? 'show' : 'hidden'}
+  variants={buttonVariants}
+  transition={{ delay: idx * 0.2 }} // Stagger the delay based on the index
+  style={{
+    marginRight: '10px', 
+    marginBottom: '10px', 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', // Centers the content vertically
+    width: '100%', // Ensures the div takes up full width
+  }}
+>
+  <Button className="tech-tag">
+    {tech}
+  </Button>
+</motion.div>
+
+                ))}
+              </div>
+                <Card.Text>{project.description}</Card.Text>
+              </Card.Body>
+              <CardFooter>
+                <Button variant="primary" href={project.link} target="_blank" className="project_vist">
+                  <strong>Visit</strong>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
+        </Col>
+            );
+          })}
         </Row>
 
         <Row>
-          <div className="sub_heading">Freelance Projects</div>
-          {freelancing.map((project, index) => (
-            <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
-              <Card className='project_cards' style={{ width: '18rem', height: 'auto', position: 'relative' }}>
-                <Card.Img variant="top" src={project.image} className="card-img-top project_images" />
-                <Card.Body>
-                  <Card.Title>{project.heading}</Card.Title>
-                  {project.tech.map((tech, index) => (
-      <Button  key={index} className="tech-tag">{tech}</Button>
-    ))}
-                  <Card.Text>
-                    {project.description}
-                  </Card.Text>
-                  <Button variant="primary" href={project.link} target="_blank" className='project_vist'><strong>Visit</strong></Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          <div className="sub_heading">Freelancing Projects</div>
+          {freelancing.map((project, index) => {
+            const { ref, inView } = useInView({ triggerOnce: false });
+
+            return (
+              <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? 'show' : 'hidden'} // Trigger animation when inView is true or false
+            variants={cardVariants}
+            transition={{
+              delay: (index+1) * 1, // Adjust stagger delay based on index
+              duration: 0.6,
+            }}
+          >
+            <Card
+              className="project_cards"
+              style={{ width: '18rem', height: 'auto', position: 'relative' }}
+        
+            >
+              <Card.Img src={project.image} className="project_images" />
+              <Card.Body>
+                <Card.Title>{project.heading}</Card.Title>
+                <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {project.tech.map((tech, idx) => (
+                  <motion.div
+  key={idx}
+  initial="hidden"
+  animate={inView ? 'show' : 'hidden'}
+  variants={buttonVariants}
+  transition={{ delay: idx * 0.2 }} // Stagger the delay based on the index
+  style={{
+    marginRight: '10px', 
+    marginBottom: '10px', 
+    display: 'flex', 
+    justifyContent: 'center', // Centers buttons horizontally
+    alignItems: 'center', // Centers buttons vertically (if needed)
+    flexWrap: 'wrap', // Wraps buttons to the next line if they overflow
+  }}
+>
+  <Button className="tech-tag">
+    {tech}
+  </Button>
+</motion.div>   ))}
+              </div>
+                <Card.Text>{project.description}</Card.Text>
+              </Card.Body>
+              <CardFooter>
+                <Button variant="primary" href={project.link} target="_blank" className="project_vist">
+                  <strong>Visit</strong>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
+        </Col>
+            );
+          })}
         </Row>
       </Container>
     </div>

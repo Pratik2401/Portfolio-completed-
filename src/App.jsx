@@ -12,6 +12,8 @@ import Certification from './Certification';
 import About from './About';
 import Contact from './Contact';
 import { Analytics } from "@vercel/analytics/react"
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS CSS
 function App() {
   return (
     <>
