@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Mypic from "./assets/images/mypic2.png";
 import Typed from "typed.js";
-import { useScroll, useTransform, useSpring, motion } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'framer-motion';
 
 import "./font.css";
 import "./Home.css";
