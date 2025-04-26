@@ -204,7 +204,7 @@ export default function Project() {
           >
             <Card
               className="project_cards"
-              style={{ width: '18rem', height: 'auto', position: 'relative' }}
+              style={{ width: '300px', height: 'auto', position: 'relative' }}
         
             >
               <Card.Img src={project.image} className="project_images" />
@@ -266,7 +266,7 @@ export default function Project() {
           >
             <Card
               className="project_cards"
-              style={{ width: '18rem', height: 'auto', position: 'relative' }}
+              style={{ width: '300px', height: 'auto', position: 'relative' }}
         
             >
               <Card.Img src={project.image} className="project_images" />
@@ -329,7 +329,7 @@ export default function Project() {
           >
             <Card
               className="project_cards"
-              style={{ width: '18rem', height: 'auto', position: 'relative' }}
+              style={{  width: '300px', height: 'auto', position: 'relative' }}
         
             >
               <Card.Img src={project.image} className="project_images" />
