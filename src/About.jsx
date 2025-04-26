@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./About.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
@@ -53,6 +53,19 @@ const sections = [
 ];
 
 export default function About() {
+  const [threshold, setThreshold] = useState(0.65);
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width < 768) {
+      setThreshold(0.1); // mobile
+    } else if (width < 1024) {
+      setThreshold(0.2); // tablet
+    } else {
+      setThreshold(0.65); // desktop
+    }
+  }, []);
+
   return (
     <div id="about">
       <div
@@ -68,119 +81,129 @@ export default function About() {
       </div>
 
       <Container>
-        {sections.map((section, index) => {
-          // Use the hook outside the map function
-          const [ref, inView] = useInView({ threshold: 0.65, triggerOnce: false });
-
-          return (
-            <Row
-              key={section.id}
-              ref={ref}
-              as={motion.div}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -700 : 700 }}
-              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, y: 0, x: index % 2 === 0 ? -300 : 300 }}
-              transition={{ duration: 1 }}
-            >
-              {index % 2 === 0 ? (
-                <>
-                  {/* Text first, image second */}
-                  <Col md={6}>
-                    <div className="grid-item d-flex justify-content-center">
-                      <div className="about_subheading">
-                        <motion.p
-                          className="head"
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                          transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
-                          style={{
-                            fontFamily: "cocogoose",
-                            fontWeight: "bolder",
-                            fontSize: "2rem",
-                            color: "#cd0ff9",
-                          }}
-                        >
-                          {section.title}
-                        </motion.p>
-                        <motion.p
-                          className="info"
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                        >
-                          {section.text}
-                        </motion.p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col md={6}>
-                    <div className="grid-item d-flex justify-content-center">
-                      <motion.div
-                        initial={{ opacity: 0.8, scale: 0.1 }}
-                        animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.1 }}
-                        transition={{ duration: 1,delay:0.4 }}
-                      >
-                        <Image
-                          src={section.image}
-                          alt={section.title}
-                          className="img-fluid rounded-circle about_img_size"
-                        />
-                      </motion.div>
-                    </div>
-                  </Col>
-                </>
-              ) : (
-                <>
-                  {/* Image first, text second */}
-                  <Col md={6}>
-                    <div className="grid-item d-flex justify-content-center">
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        
-                        animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.1 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <Image
-                          src={section.image}
-                          alt={section.title}
-                          className="img-fluid rounded-circle about_img_size"
-                        />
-                      </motion.div>
-                    </div>
-                  </Col>
-                  <Col md={6}>
-                    <div className="grid-item d-flex justify-content-center">
-                      <div className="about_subheading">
-                        <motion.p
-                          className="head"
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                          transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
-                          style={{
-                            fontFamily: "cocogoose",
-                            fontWeight: "bolder",
-                            fontSize: "2rem",
-                            color: "#cd0ff9",
-                          }}
-                        >
-                          {section.title}
-                        </motion.p>
-                        <motion.p
-                          className="info"
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                        >
-                          {section.text}
-                        </motion.p>
-                      </div>
-                    </div>
-                  </Col>
-                </>
-              )}
-            </Row>
-          );
-        })}
+        {sections.map((section, index) => (
+          <AnimatedSection
+            key={section.id}
+            section={section}
+            index={index}
+            threshold={threshold}
+          />
+        ))}
       </Container>
     </div>
+  );
+}
+
+function AnimatedSection({ section, index, threshold }) {
+  const [ref, inView] = useInView({
+    threshold: threshold,
+    triggerOnce: false,
+  });
+
+  const isEven = index % 2 === 0;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: isEven ? -700 : 700 }}
+      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? -300 : 300 }}
+      transition={{ duration: 1 }}
+    >
+      <Row className="mb-4">
+        {isEven ? (
+          <>
+            <Col md={6}>
+              <div className="grid-item d-flex justify-content-center">
+                <div className="about_subheading">
+                  <motion.p
+                    className="head"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+                    style={{
+                      fontFamily: "cocogoose",
+                      fontWeight: "bolder",
+                      fontSize: "2rem",
+                      color: "#cd0ff9",
+                    }}
+                  >
+                    {section.title}
+                  </motion.p>
+                  <motion.p
+                    className="info"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                  >
+                    {section.text}
+                  </motion.p>
+                </div>
+              </div>
+            </Col>
+            <Col md={6}>
+              <div className="grid-item d-flex justify-content-center">
+                <motion.div
+                  initial={{ opacity: 0.8, scale: 0.1 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.1 }}
+                  transition={{ duration: 1, delay: 0.4 }}
+                >
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    className="img-fluid rounded-circle about_img_size"
+                  />
+                </motion.div>
+              </div>
+            </Col>
+          </>
+        ) : (
+          <>
+            <Col md={6}>
+              <div className="grid-item d-flex justify-content-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    className="img-fluid rounded-circle about_img_size"
+                  />
+                </motion.div>
+              </div>
+            </Col>
+            <Col md={6}>
+              <div className="grid-item d-flex justify-content-center">
+                <div className="about_subheading">
+                  <motion.p
+                    className="head"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+                    style={{
+                      fontFamily: "cocogoose",
+                      fontWeight: "bolder",
+                      fontSize: "2rem",
+                      color: "#cd0ff9",
+                    }}
+                  >
+                    {section.title}
+                  </motion.p>
+                  <motion.p
+                    className="info"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                  >
+                    {section.text}
+                  </motion.p>
+                </div>
+              </div>
+            </Col>
+          </>
+        )}
+      </Row>
+    </motion.div>
   );
 }
