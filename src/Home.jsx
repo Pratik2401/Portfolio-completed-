@@ -14,14 +14,6 @@ import Button from 'react-bootstrap/Button';
 
 export default function Home() {
   const typedRef = useRef(null);
-  const { scrollYProgress } = useScroll();
-
-  // Parallax effect on background
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, 200]);  // Adjust range as needed
-
-  // Parallax effect on text (for smoother transition)
-  const x = useTransform(scrollYProgress, [0, 0.3], [0, -200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   useEffect(() => {
     const typed = new Typed(".typed", {
@@ -64,20 +56,10 @@ export default function Home() {
     <Container className="d-flex align-items-center homebody" id="home">
       {/* Parallax background effect */}
       <motion.div
-        style={{
-          backgroundImage: 'url(./assets/images/your-background-image.jpg)', // replace with your background image
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          height: '100vh',
-          position: 'absolute',
-          width: '100%',
-          top: 0,
-          left: 0,
-          y: backgroundY, // Apply the parallax transformation
-        }}
+      
       />
 
-      <motion.div style={{ x, opacity, width: "100%" }}>
+      <motion.div style={{ width: "100%" }}>
         <Row className="justify-content-center margin_body">
           <Col md={6} className="text-light margin_info">
             <motion.p
