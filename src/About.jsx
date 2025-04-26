@@ -105,8 +105,9 @@ function AnimatedSection({ section, index, threshold }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: isEven ? -700 : 700 }}
-      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? -300 : 300 }}
+      initial={{ opacity: 0, x: isEven ? (window.innerWidth < 768 ? -100 : -700) : (window.innerWidth < 768 ? 100 : 700) }}
+animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? -100 : 100 }}
+
       transition={{ duration: 1 }}
     >
       <Row className="mb-4">

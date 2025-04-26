@@ -23,7 +23,27 @@ const CustomNavbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
+  const useScrollProgress = () => {
+    const [scrollProgress, setScrollProgress] = useState(0);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTop = window.scrollY;
+        if (totalHeight === 0) {
+          setScrollProgress(0);
+        } else {
+          setScrollProgress(scrollTop / totalHeight);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
+    return scrollProgress;
+  };
+  
   return (
     <Navbar expand="lg" className={`justify-content-between sticky-top ${navbarClass}`}>
       <Container>
@@ -60,6 +80,13 @@ const CustomNavbar = () => {
         </Navbar.Collapse>
       </Container>
       <motion.div className="navbar-background" />
+      <motion.div
+  className="scroll-progress-bar"
+  style={{
+    scaleX: useScrollProgress(),
+    backgroundColor: "white"
+  }}
+/>
     </Navbar>
   );
 };
