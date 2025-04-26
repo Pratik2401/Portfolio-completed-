@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-
+import './Particle.css'
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
 
@@ -77,7 +77,7 @@ const ParticlesBackground = () => {
           position: "fixed",
           top: 0,
           left: 0,
-          width: "100%",
+          width: "100vw",
           height: "100vh", // Limit height to 100vh
           zIndex: -1, // Lower than content
           overflow: "hidden",
@@ -94,6 +94,7 @@ const ParticlesBackground = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            width:"100vw"
           }}
         >
           
