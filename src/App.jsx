@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import ParticlesBackground from './Particle';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
@@ -11,12 +12,31 @@ import Project from './Project';
 import Certification from './Certification';
 import About from './About';
 import Contact from './Contact';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
 import { Container } from 'react-bootstrap';
 
 function App() {
+  const [showGoToTop, setShowGoToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowGoToTop(true);
+      } else {
+        setShowGoToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="wrapper">
       <ParticlesBackground />
@@ -41,6 +61,11 @@ function App() {
           />
         </Routes>
       </Router>
+      {showGoToTop && (
+        <button className="go-to-top" onClick={scrollToTop}>
+          ↑
+        </button>
+      )}
     </div>
   );
 }
