@@ -35,7 +35,7 @@ export default function Project() {
       description: 'A task management app built with HTML, CSS, and JavaScript. Users can add, delete, and prioritize tasks with extra descriptions. The interface is clean and user-friendly, making daily task management seamless.',
       link: "https://pratik2401.github.io/TO-DO-List/",
       tags: 'completed',
-      tech: ['HTML', 'CSS', 'JavaScript']
+      tech: ['HTML', 'CSS', 'JavaScript','LocalStorage']
     },
     {
       image: Spot,
@@ -51,7 +51,7 @@ export default function Project() {
       description: 'An interactive quiz app built with HTML, CSS, JSON, and JavaScript. Features typed.js for typing effects and local storage for saving quiz data. Supports multiple question types for an engaging experience.',
       link: "https://pratik2401.github.io/quiz-generator/",
       tags: 'completed',
-      tech: ['HTML', 'CSS', 'JavaScript', 'JSON', 'Typed.js', 'LocalStorage']
+      tech: ['CSS', 'JavaScript', 'JSON', 'Typed.js', 'LocalStorage']
     },
     {
       image: Blog,
@@ -67,7 +67,7 @@ export default function Project() {
       description: 'A ReactJS weather app using REST API. Features real-time weather updates with useContext and createContext for state management. Offers a clean, intuitive interface for quick weather insights.',
       link: "https://castingweather.netlify.app/",
       tags: 'completed',
-      tech: ['ReactJS', 'REST API', 'Bootstrap', 'useContext', 'createContext']
+      tech: ['ReactJS', 'REST API', 'Bootstrap', 'useContext']
     },
     {
       image: Dyazo,
@@ -75,7 +75,7 @@ export default function Project() {
       description: 'An e-commerce website redesigned with HTML, CSS, JavaScript, and Bootstrap. Implements Soft UI (Neuromorphism) for a modern look and ensures responsive design for a seamless shopping experience.',
       link: "https://dyazo.netlify.app/",
       tags: 'completed',
-      tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Soft UI']
+      tech: ['CSS', 'JavaScript', 'Bootstrap', 'Soft UI']
     },
     {
       image: News,
@@ -85,21 +85,14 @@ export default function Project() {
       tags: 'completed',
       tech: ['ReactJS', 'REST API', 'useContext' ]
     },
-    {
-      image: Text,
-      heading: 'Text Editor',
-      description: 'A React-based text editor with essential editing features. Offers a smooth and modern interface for writing and formatting text efficiently.',
-      link: "https://github.com/Pratik2401/Text_Editor",
-      tags: 'completed',
-      tech: ['ReactJS', 'JavaScript']
-    },
+   
     {
       image: Textsaver,
       heading: 'Text Saver',
       description: 'A MERN stack app allowing users to save text and images with a shareable URL. A convenient solution for quickly storing and sharing notes or content.',
       link: "https://savetext.vercel.app/",
       tags: 'completed',
-      tech: ['MongoDB', 'ExpressJS', 'ReactJS', 'Node.js', 'MERN']
+      tech: ['MongoDB', 'ExpressJS', 'ReactJS', 'Node.js']
     },
     {
       image: contactApp,
@@ -107,7 +100,7 @@ export default function Project() {
       description: 'A MERN stack contact management app featuring JWT authentication, bcrypt encryption, and a React Bootstrap UI. Ensures secure and smooth user experience.',
       link: "https://spherecontact.vercel.app/",
       tags: 'completed',
-      tech: ['MongoDB', 'ExpressJS', 'ReactJS', 'Node.js', 'JWT', 'Bcrypt', 'Bootstrap']
+      tech: ['MERN', 'JWT', 'Bcrypt', 'Bootstrap']
     }
   ];
   
@@ -130,7 +123,7 @@ export default function Project() {
     },
     {
       image: Calculator,
-      heading: 'Calculator - Console Based',
+      heading: 'Python Calculator - Console Based',
       description: 'A simple Python calculator performing basic arithmetic operations. Designed for easy use in a console interface, making it a great beginner-friendly project.',
       link: "https://github.com/Pratik2401/CodeSoft-Python/blob/main/Calculator.py",
       tags: 'completed',
@@ -182,7 +175,7 @@ export default function Project() {
     <div id="projects">
       <div className="heading">Projects</div>
       <Container>
-      <Row>
+      <Row className='Project-Rows'>
     <div className="sub_heading">Web Dev Projects</div>
     {front_end_projects.map((project, index) => {
       const { ref, inView } = useInView({
@@ -191,7 +184,7 @@ export default function Project() {
       });
 
       return (
-        <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
+        <Col key={index} md={4} className="Project-Col mb-4 d-flex justify-content-center">
           <motion.div
             ref={ref}
             initial="hidden"
@@ -204,7 +197,7 @@ export default function Project() {
           >
             <Card
               className="project_cards"
-              style={{ width: '300px', height: 'auto', position: 'relative' }}
+              style={{ width: '300px'}}
         
             >
               <Card.Img src={project.image} className="project_images" />
@@ -270,7 +263,7 @@ export default function Project() {
         
             >
               <Card.Img src={project.image} className="project_images" />
-              <Card.Body>
+              <Card.Body className='projectCard-Body'>
                 <Card.Title>{project.heading}</Card.Title>
                 <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {project.tech.map((tech, idx) => (
@@ -329,7 +322,7 @@ export default function Project() {
           >
             <Card
               className="project_cards"
-              style={{  width: '300px', height: 'auto', position: 'relative' }}
+              style={{  width: '300px'}}
         
             >
               <Card.Img src={project.image} className="project_images" />

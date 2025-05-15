@@ -13,11 +13,19 @@
     margin: 40px 0;
     transition: color 0.4s ease;
     overflow: hidden;
-    position: relative;
-    transition: box-shadow 0.5s;
     
+    transition: box-shadow 0.5s;
+    height: 100% !important
+    ;
 }
 
+/* .projectCard-Body{
+    max-height: 250px !important;
+} */
+
+.card-text{
+    text-align: start;
+}
 .project_images{
     width: 99% !important;
     border-radius: 20px 20px 0px    0px !important;
@@ -85,4 +93,8 @@
     margin: 5px !important;
     color: black !important;
     cursor:default !important;
+}
+
+.Project-Rows{
+    height: auto !important;
 }
