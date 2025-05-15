@@ -14,30 +14,34 @@ import Contact from './Contact';
 import { Analytics } from "@vercel/analytics/react"
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
+import { Container } from 'react-bootstrap';
+
 function App() {
   return (
-    <>
-    
-    <ParticlesBackground/>
-    <Analytics/>
-    <Router>
-      <Routes>
-        <Route path="/admin" element={<Admin/>} />
-        <Route path="/" element={
-          <>
-            <Navbar/>
-            <Home/>
-            <Education />
-            <Myskill />
-            <Project />
-            <Certification />
-            <About />
-            <Contact />
-          </>
-        } />
-      </Routes>
-    </Router>
-    </>
+    <div className="wrapper">
+      <ParticlesBackground />
+      <Analytics />
+      <Router>
+        <Navbar /> {/* Keep Navbar outside the Routes for global visibility */}
+        <Routes>
+          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Home />
+                <Education />
+                <Myskill />
+                <Project />
+                <Certification />
+                <About />
+                <Contact />
+              </>
+            }
+          />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

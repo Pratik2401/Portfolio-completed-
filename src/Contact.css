@@ -11,15 +11,12 @@
       color: white;
       margin: 20px 10px;
       margin-bottom: 60px;
-      
+        width: 90% !important
+    ;
 }
 
 
-.contact_bg:hover{
-    color: white !important;
-    background: rgba(239, 99, 247, 0.255) !important; 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
+
 .field_area{
     color: white !important;
     background-color: transparent !important;
@@ -81,3 +78,4 @@
 .contactBtn:hover > strong {
     color: white !important;
 }
+

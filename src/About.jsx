@@ -62,7 +62,7 @@ export default function About() {
     } else if (width < 1024) {
       setThreshold(0.2); // tablet
     } else {
-      setThreshold(0.65); // desktop
+      setThreshold(0.15); // desktop
     }
   }, []);
 

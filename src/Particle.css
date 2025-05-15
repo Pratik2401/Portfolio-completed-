@@ -1,8 +1,11 @@
-    #tsparticles canvas {
-        width: 100vw !important;
-        /* max-width: 100vw; */
-        /* max-height: 100vh;
-        overflow: hidden;
-        object-fit: cover; */
-    }
-   
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    object-fit: cover;
+    position: absolute; /* Ensures it stays within the root */
+    top: 0;
+    left: 0;
+}
