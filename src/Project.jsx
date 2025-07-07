@@ -140,6 +140,7 @@ export default function Project() {
       tags: 'completed',
       tech: ['WordPress', 'UI Design', 'Responsive Design']
     }
+    
   ];
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },

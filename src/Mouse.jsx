@@ -1,62 +1,109 @@
-import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from 'react';
 
-export default function MouseTrail() {
-  const [positions, setPositions] = useState([]);
-  const requestRef = useRef(null);
-
+const MouseTrail = () => {
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setPositions((prev) => [
-        ...prev,
-        { x: e.clientX, y: e.clientY, id: Math.random() },
-      ]);
+    const particles = [];
+    const colors = ['#cd0ff9', '#0ff9cd', '#f9cd0f'];
+    
+    class Particle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 2 - 1;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.life = 1;
+        this.decay = Math.random() * 0.02 + 0.02;
+      }
 
-      // Keep only the last 15 positions for an ultra-smooth effect
-      if (positions.length > 15) {
-        setPositions((prev) => prev.slice(1));
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.life -= this.decay;
+        
+        if (this.size > 0.1) this.size -= 0.1;
+      }
+
+      draw(ctx) {
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '9999';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let lastX = 0;
+    let lastY = 0;
+
+    const addParticles = (x, y, amount) => {
+      for (let i = 0; i < amount; i++) {
+        particles.push(new Particle(x, y));
       }
     };
 
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      const dx = mouseX - lastX;
+      const dy = mouseY - lastY;
+      const speed = Math.sqrt(dx * dx + dy * dy);
+      
+      const particleCount = Math.floor(speed / 2);
+      addParticles(mouseX, mouseY, particleCount);
+      
+      lastX = mouseX;
+      lastY = mouseY;
+    });
+
     const animate = () => {
-      requestRef.current = requestAnimationFrame(animate);
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw(ctx);
+
+        if (particles[i].life <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(animate);
     };
 
-    requestRef.current = requestAnimationFrame(animate);
-    window.addEventListener("mousemove", handleMouseMove);
+    animate();
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(requestRef.current);
+      window.removeEventListener('resize', resizeCanvas);
+      document.body.removeChild(canvas);
     };
-  }, [positions]);
+  }, []);
 
-  return (
-    <div>
-      {positions.map((pos, index) => (
-        <motion.div
-          key={pos.id}
-          className="trail-dot"
-          initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 0, scale: 0.8 }}
-          transition={{
-            duration: 0.6, // Slightly longer fade for smooth effect
-            ease: "easeOut", // Natural easing
-          }}
-          style={{
-            position: "absolute",
-            top: pos.y,
-            left: pos.x,
-            width: `${12 - index * 0.5}px`, // Smaller dots at the end
-            height: `${12 - index * 0.5}px`,
-            backgroundColor: "#cd0ff9", // Bright Purple Color 🎨
-            borderRadius: "50%",
-            pointerEvents: "none",
-            boxShadow: "0px 0px 18px 8px #cd0ff9", // Stronger Glow ✨
-            filter: "blur(2px)", // Slight blur for a softer look
-          }}
-        />
-      ))}
-    </div>
-  );
-}
+  return null;
+};
+
+export default MouseTrail;
