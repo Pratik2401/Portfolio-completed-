@@ -1,8 +1,9 @@
-
+import { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Meta from './components/Meta';
 
 import { useInView } from 'react-intersection-observer'; 
 import Button from 'react-bootstrap/Button';
@@ -28,6 +29,26 @@ import { CardFooter } from 'react-bootstrap';
 
 
 export default function Project() {    
+  // Add JSON-LD structured data for projects
+  useEffect(() => {
+    const projectsSchema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": []
+    };
+
+    // Add JSON-LD structured data
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = JSON.stringify(projectsSchema);
+    document.head.appendChild(script);
+    
+    return () => {
+      // Clean up
+      const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+      scripts.forEach(s => s.remove());
+    };
+  }, []);
 
   const front_end_projects = [
     {
@@ -189,7 +210,13 @@ export default function Project() {
   };
   
   return (
-    <div id="projects">
+    <>
+      <Meta 
+        title="Projects - Pratik Mali Portfolio"
+        description="Explore my portfolio of web development, freelancing, and coding projects including MERN stack applications, responsive websites, and Python programs."
+        keywords="Pratik Mali, Web Projects, MERN Stack, Freelance Projects, React Projects, Portfolio"
+      />
+      <div id="projects">
       <div className="heading">Projects</div>
       <Container>
         <Row>
@@ -361,5 +388,6 @@ export default function Project() {
         </Row>
       </Container>
     </div>
+    </>
   );
 }

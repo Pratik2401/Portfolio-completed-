@@ -1,5 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+// Get current directory name
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Your website URL
 const WEBSITE_URL = 'https://yourdomain.com';
@@ -43,7 +48,7 @@ const generateSitemap = () => {
 // Write sitemap to file
 const writeSitemap = () => {
   const sitemap = generateSitemap();
-  const outputPath = path.resolve(__dirname, '../public/sitemap.xml');
+  const outputPath = resolve(__dirname, '../public/sitemap.xml');
   
   fs.writeFileSync(outputPath, sitemap);
   console.log(`Sitemap generated at ${outputPath}`);
