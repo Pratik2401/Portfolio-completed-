@@ -16,6 +16,7 @@ import { Analytics } from "@vercel/analytics/react";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
 import { Container } from 'react-bootstrap';
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -38,35 +39,37 @@ function App() {
   };
 
   return (
-    <div className="wrapper">
-      <ParticlesBackground />
-      <Analytics />
-      <Router>
-        <Navbar /> {/* Keep Navbar outside the Routes for global visibility */}
-        <Routes>
-          <Route path="/admin" element={<Admin />} />
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-                <Education />
-                <Myskill />
-                <Project />
-                <Certification />
-                <About />
-                <Contact />
-              </>
-            }
-          />
-        </Routes>
-      </Router>
-      {showGoToTop && (
-        <button className="go-to-top" onClick={scrollToTop}>
-          ↑
-        </button>
-      )}
-    </div>
+    <HelmetProvider>
+      <div className="wrapper">
+        <ParticlesBackground />
+        <Analytics />
+        <Router>
+          <Navbar /> {/* Keep Navbar outside the Routes for global visibility */}
+          <Routes>
+            <Route path="/admin" element={<Admin />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Home />
+                  <Education />
+                  <Myskill />
+                  <Project />
+                  <Certification />
+                  <About />
+                  <Contact />
+                </>
+              }
+            />
+          </Routes>
+        </Router>
+        {showGoToTop && (
+          <button className="go-to-top" onClick={scrollToTop}>
+            ↑
+          </button>
+        )}
+      </div>
+    </HelmetProvider>
   );
 }
 

@@ -14,9 +14,10 @@ import Quiz from './assets/images/Projects/quiz_app.png'
 import Weather from './assets/images/Projects/weather_app.png'
 import Dyazo from './assets/images/Projects/Dyazo.png'
 import News from './assets/images/Projects/news_app.png'
-import Text from './assets/images/Projects/text_editor.png'
-import Textsaver from './assets/images/Projects/text-saver.png'
 
+import Textsaver from './assets/images/Projects/text-saver.png'
+import Maharashtra from './assets/images/Projects/Maharashtra.jpg'
+import BoardGames from './assets/images/Projects/BoardGames.jpg'
 import contactApp from './assets/images/Projects/contactapp.png'
 import Calculator from './assets/images/Projects/calculator.png'
 import Password from './assets/images/Projects/password_manager.png'
@@ -24,7 +25,7 @@ import Rock from './assets/images/Projects/rock_paper_scissor.png'
 import { motion } from 'framer-motion'; // Import motion from framer-motion
 import './Project.css';
 import { CardFooter } from 'react-bootstrap';
-import React, { useRef } from 'react';
+
 
 export default function Project() {    
 
@@ -133,6 +134,22 @@ export default function Project() {
   
   const freelancing = [
     {
+      image: BoardGames,
+      heading: "BoardGames",
+      description: "A comprehensive event registration website offering full administrative control over event creation, updates, and deletion. It features a dedicated admin panel, basic analytics, and automated email notifications triggered upon user registration.",
+      link: "https://events.imboard.in",
+      tags: 'completed',
+      tech: ['React', 'Node.js', 'Admin Panel', 'Email Automation']
+    },
+    {
+      image: Maharashtra,
+      heading: "Maharashtra Farms",
+      description: "A subscription-based delivery platform for fresh vegetables, fruits, and salads. The system streamlines customer subscriptions, order management, and delivery logistics, making healthy eating convenient and accessible. It offers both users and administrators an intuitive interface for managing plans, customizing orders, and tracking deliveries.",
+      link: "https://maharashtrafarms.com",
+      tags: 'completed',
+      tech: ['React', 'Node.js', 'Subscription', 'Delivery Platform']
+    },
+    {
       image: Kumbhathon,
       heading: "Kumbhathon",
       description: "Developed a WordPress website for Kumbhathon, gaining hands-on experience in UI design and user experience optimization. Integrated themes, implemented redirects, and explored essential WordPress features. Ensured website responsiveness across devices for an accessible and seamless user experience.",
@@ -140,7 +157,6 @@ export default function Project() {
       tags: 'completed',
       tech: ['WordPress', 'UI Design', 'Responsive Design']
     }
-    
   ];
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -176,191 +192,170 @@ export default function Project() {
     <div id="projects">
       <div className="heading">Projects</div>
       <Container>
-      <Row className='Project-Rows'>
-    <div className="sub_heading">Web Dev Projects</div>
-    {front_end_projects.map((project, index) => {
-      const { ref, inView } = useInView({
-        triggerOnce: false, // Trigger both on enter and leave
-        threshold: 0.65, // Set how much of the element needs to be in view before triggering
-      });
-
-      return (
-        <Col key={index} md={4} className="Project-Col mb-4 d-flex justify-content-center">
-          <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={inView ? 'show' : 'hidden'} // Trigger animation when inView is true or false
-            variants={cardVariants}
-            transition={{
-              delay: (index+1) * 1, // Adjust stagger delay based on index
-              duration: 0.6,
-            }}
-          >
-            <Card
-              className="project_cards"
-              style={{ width: '300px'}}
-        
-            >
-              <Card.Img src={project.image} className="project_images" />
-              <Card.Body>
-                <Card.Title>{project.heading}</Card.Title>
-                <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {project.tech.map((tech, idx) => (
-                  <motion.div
-  key={idx}
-  initial="hidden"
-  animate={inView ? 'show' : 'hidden'}
-  variants={buttonVariants}
-  transition={{ delay: idx * 0.2 }} // Stagger the delay based on the index
-  style={{
-    marginRight: '10px', 
-    marginBottom: '10px', 
-    display: 'flex', 
-    justifyContent: 'center', // Centers buttons horizontally
-    alignItems: 'center', // Centers buttons vertically (if needed)
-    flexWrap: 'wrap', // Wraps buttons to the next line if they overflow
-  }}
->
-  <Button className="tech-tag">
-    {tech}
-  </Button>
-</motion.div>
-                ))}
-              </div>
-                <Card.Text>{project.description}</Card.Text>
-              </Card.Body>
-              <CardFooter>
-                <Button variant="primary" href={project.link} target="_blank" className="project_vist">
-                  <strong>Visit</strong>
-                </Button>
-              </CardFooter>
-            </Card>
-          </motion.div>
-        </Col>
-      );
-    })}
-  </Row>
-
         <Row>
-          <div className="sub_heading">Coding Projects</div>
-          {program_project.map((project, index) => {
+          <div className="sub_heading">Freelancing Projects</div>
+          {freelancing.map((project, index) => {
             const { ref, inView } = useInView({ triggerOnce: false });
-
             return (
               <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
-          <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={inView ? 'show' : 'hidden'} // Trigger animation when inView is true or false
-            variants={cardVariants}
-            transition={{
-              delay: (index+1) * 1, // Adjust stagger delay based on index
-              duration: 0.6,
-            }}
-          >
-            <Card
-              className="project_cards"
-              style={{ width: '300px', height: 'auto', position: 'relative' }}
-        
-            >
-              <Card.Img src={project.image} className="project_images" />
-              <Card.Body className='projectCard-Body'>
-                <Card.Title>{project.heading}</Card.Title>
-                <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {project.tech.map((tech, idx) => (
-                  <motion.div
-  key={idx}
-  initial="hidden"
-  animate={inView ? 'show' : 'hidden'}
-  variants={buttonVariants}
-  transition={{ delay: idx * 0.2 }} // Stagger the delay based on the index
-  style={{
-    marginRight: '10px', 
-    marginBottom: '10px', 
-    display: 'flex', 
-    justifyContent: 'center', 
-    alignItems: 'center', // Centers the content vertically
-    width: '100%', // Ensures the div takes up full width
-  }}
->
-  <Button className="tech-tag">
-    {tech}
-  </Button>
-</motion.div>
+                <motion.div
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? 'show' : 'hidden'}
+                  variants={cardVariants}
+                  transition={{
+                    delay: (index+1) * 1,
+                    duration: 0.6,
+                  }}
+                >
+                  <Card className="project_cards" style={{ width: '300px' }}>
+                    {project.image && <Card.Img src={project.image} className="project_images" />}
+                    <Card.Body>
+                      <Card.Title>{project.heading}</Card.Title>
+                      <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {project.tech.map((tech, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial="hidden"
+                            animate={inView ? 'show' : 'hidden'}
+                            variants={buttonVariants}
+                            transition={{ delay: idx * 0.2 }}
+                            style={{
+                              marginRight: '10px',
+                              marginBottom: '10px',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              flexWrap: 'wrap',
+                            }}
+                          >
+                            <Button className="tech-tag">{tech}</Button>
+                          </motion.div>
+                        ))}
+                      </div>
+                      <Card.Text>{project.description}</Card.Text>
+                    </Card.Body>
+                    <CardFooter>
+                      <Button variant="primary" href={project.link} target="_blank" className="project_vist">
+                        <strong>Visit</strong>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+              </Col>
+            );
+          })}
+        </Row>
 
-                ))}
-              </div>
-                <Card.Text>{project.description}</Card.Text>
-              </Card.Body>
-              <CardFooter>
-                <Button variant="primary" href={project.link} target="_blank" className="project_vist">
-                  <strong>Visit</strong>
-                </Button>
-              </CardFooter>
-            </Card>
-          </motion.div>
-        </Col>
+        <Row className='Project-Rows'>
+          <div className="sub_heading">Web Dev Projects</div>
+          {front_end_projects.map((project, index) => {
+            const { ref, inView } = useInView({
+              triggerOnce: false,
+              threshold: 0.65,
+            });
+            return (
+              <Col key={index} md={4} className="Project-Col mb-4 d-flex justify-content-center">
+                <motion.div
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? 'show' : 'hidden'}
+                  variants={cardVariants}
+                  transition={{
+                    delay: (index+1) * 1,
+                    duration: 0.6,
+                  }}
+                >
+                  <Card className="project_cards" style={{ width: '300px'}}>
+                    <Card.Img src={project.image} className="project_images" />
+                    <Card.Body>
+                      <Card.Title>{project.heading}</Card.Title>
+                      <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {project.tech.map((tech, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial="hidden"
+                            animate={inView ? 'show' : 'hidden'}
+                            variants={buttonVariants}
+                            transition={{ delay: idx * 0.2 }}
+                            style={{
+                              marginRight: '10px',
+                              marginBottom: '10px',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              flexWrap: 'wrap',
+                            }}
+                          >
+                            <Button className="tech-tag">{tech}</Button>
+                          </motion.div>
+                        ))}
+                      </div>
+                      <Card.Text>{project.description}</Card.Text>
+                    </Card.Body>
+                    <CardFooter>
+                      <Button variant="primary" href={project.link} target="_blank" className="project_vist">
+                        <strong>Visit</strong>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+              </Col>
             );
           })}
         </Row>
 
         <Row>
-          <div className="sub_heading">Freelancing Projects</div>
-          {freelancing.map((project, index) => {
+          <div className="sub_heading">Coding Projects</div>
+          {program_project.map((project, index) => {
             const { ref, inView } = useInView({ triggerOnce: false });
-
             return (
               <Col key={index} md={4} className="mb-4 d-flex justify-content-center">
-          <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={inView ? 'show' : 'hidden'} // Trigger animation when inView is true or false
-            variants={cardVariants}
-            transition={{
-              delay: (index+1) * 1, // Adjust stagger delay based on index
-              duration: 0.6,
-            }}
-          >
-            <Card
-              className="project_cards"
-              style={{  width: '300px'}}
-        
-            >
-              <Card.Img src={project.image} className="project_images" />
-              <Card.Body>
-                <Card.Title>{project.heading}</Card.Title>
-                <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {project.tech.map((tech, idx) => (
-                  <motion.div
-  key={idx}
-  initial="hidden"
-  animate={inView ? 'show' : 'hidden'}
-  variants={buttonVariants}
-  transition={{ delay: idx * 0.2 }} // Stagger the delay based on the index
-  style={{
-    marginRight: '10px', 
-    marginBottom: '10px', 
-    display: 'flex', 
-    justifyContent: 'center', // Centers buttons horizontally
-    alignItems: 'center', // Centers buttons vertically (if needed)
-    flexWrap: 'wrap', // Wraps buttons to the next line if they overflow
-  }}
->
-  <Button className="tech-tag">
-    {tech}
-  </Button>
-</motion.div>   ))}
-              </div>
-                <Card.Text>{project.description}</Card.Text>
-              </Card.Body>
-              <CardFooter>
-                <Button variant="primary" href={project.link} target="_blank" className="project_vist">
-                  <strong>Visit</strong>
-                </Button>
-              </CardFooter>
-            </Card>
-          </motion.div>
-        </Col>
+                <motion.div
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? 'show' : 'hidden'}
+                  variants={cardVariants}
+                  transition={{
+                    delay: (index+1) * 1,
+                    duration: 0.6,
+                  }}
+                >
+                  <Card className="project_cards" style={{ width: '300px', height: 'auto', position: 'relative' }}>
+                    <Card.Img src={project.image} className="project_images" />
+                    <Card.Body className='projectCard-Body'>
+                      <Card.Title>{project.heading}</Card.Title>
+                      <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {project.tech.map((tech, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial="hidden"
+                            animate={inView ? 'show' : 'hidden'}
+                            variants={buttonVariants}
+                            transition={{ delay: idx * 0.2 }}
+                            style={{
+                              marginRight: '10px',
+                              marginBottom: '10px',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              width: '100%',
+                            }}
+                          >
+                            <Button className="tech-tag">{tech}</Button>
+                          </motion.div>
+                        ))}
+                      </div>
+                      <Card.Text>{project.description}</Card.Text>
+                    </Card.Body>
+                    <CardFooter>
+                      <Button variant="primary" href={project.link} target="_blank" className="project_vist">
+                        <strong>Visit</strong>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+              </Col>
             );
           })}
         </Row>

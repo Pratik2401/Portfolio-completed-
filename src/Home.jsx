@@ -6,6 +6,8 @@ import Image from "react-bootstrap/Image";
 import Mypic from "./assets/images/mypic2.png";
 import Typed from "typed.js";
 import { useScroll, useTransform, motion } from 'framer-motion';
+import SEO from './components/SEO';
+import JsonLd from './components/JsonLd';
 
 import "./font.css";
 import "./Home.css";
@@ -52,8 +54,30 @@ export default function Home() {
     window.open('https://leetcode.com/u/pratikmali242005/', '_blank');
   };
 
+  // Structured data for person (portfolio owner)
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pratik Mali",
+    "url": window.location.origin,
+    "image": `${window.location.origin}/src/assets/images/mypic2.png`,
+    "jobTitle": "Web Developer",
+    "description": "Web Developer, MERN Stack Freelancer, UI Designer, IoT Enthusiast and Microprocessor Aficionado",
+    "sameAs": [
+      "https://www.linkedin.com/in/pratikmali24/",
+      "https://github.com/Pratik2401",
+      "https://leetcode.com/u/pratikmali242005/"
+    ]
+  };
+
   return (
-    <Container className="d-flex align-items-center homebody" id="home">
+    <>
+      <SEO 
+        title="Pratik Mali - Web Developer & MERN Stack Portfolio"
+        description="Delving into AI & Data Science, I channel my passion into captivating website development. My portfolio highlights dynamic, responsive designs that showcase innovation."
+      />
+      <JsonLd data={personSchema} />
+      <Container className="d-flex align-items-center homebody" id="home">
       {/* Parallax background effect */}
       <motion.div
       
@@ -237,5 +261,6 @@ export default function Home() {
       </motion.div>
       
     </Container>
+    </>
   );
 }

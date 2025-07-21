@@ -128,7 +128,7 @@
 }
 
 .cv_btn {
-  background: linear-gradient(45deg, #cd0ff9, #0ff9cd) !important;
+  background: #cd0ff9 !important;
   color: white !important;
   padding: 10px 30px !important;
   border: none !important;
@@ -163,7 +163,6 @@
 .cv_btn > strong {
   position: relative;
   z-index: 1;
-  mix-blend-mode: difference;
 }
 
 .margin_info {

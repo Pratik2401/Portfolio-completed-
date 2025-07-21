@@ -33,22 +33,54 @@ import Image from './assets/images/image_process.png';
 import GenAI from './assets/images/GenAI.png'
 import ChatBot from './assets/images/chatbot.png'
 import './Myskill.css';
-
+import Langchain from './assets/images/Langchain.png';
+import LangGraph from './assets/images/Langraph.png';
 const skills = [
+  // --- AI Section (Top) ---
   {
-    image: Arduino,
-    heading: 'Arduino',
-    description: 'Design and implement embedded systems using Arduino, creating innovative hardware projects.',
+    image: MachineLearning,
+    heading: 'Machine Learning',
+    description: 'Studying machine learning algorithms and techniques to develop predictive models and automated decision-making systems.',
     status: 'completed',
-    domain: 'Embedded Systems & IoT'
+    domain: 'AI'
   },
   {
-    image: RaspberryPi,
-    heading: 'Raspberry Pi',
-    description: 'Develop IoT solutions with Raspberry Pi, integrating sensors and actuators for smart applications.',
+    image: Image,
+    heading: 'Computer Vision',
+    description: 'Analyzing and transforming images to extract valuable information or enhance visual quality for various applications.',
     status: 'completed',
-    domain: 'Embedded Systems & IoT'
+    domain: 'AI'
   },
+  {
+    image: GenAI,
+    heading: 'Generative AI',
+    description: 'Developing AI models that generate text, images, and videos using deep learning techniques like GANs, transformers, and diffusion models.',
+    status: 'ongoing',
+    domain: 'AI'
+  },
+  {
+    image: ChatBot,
+    heading: 'Chatbots',
+    description: 'Building AI-driven conversational agents using NLP, machine learning, and deep learning techniques for interactive and automated responses.',
+    status: 'ongoing',
+    domain: 'AI'
+  },
+  {
+    image: Langchain,
+    heading: 'Langchain',
+    description: 'Building LLM-powered applications and workflows using Langchain framework.',
+    status: 'ongoing',
+    domain: 'AI'
+  },
+  {
+    image: LangGraph,
+    heading: 'LangGraph',
+    description: 'Orchestrating complex LLM workflows with LangGraph for advanced AI applications.',
+    status: 'ongoing',
+    domain: 'AI'
+  },
+
+  // --- Web Development ---
   {
     image: Html5,
     heading: 'HTML 5',
@@ -64,16 +96,16 @@ const skills = [
     domain: 'Web Development'
   },
   {
-    image: JS,
-    heading: 'JavaScript',
-    description: 'Build dynamic and interactive web applications using JavaScript, enabling rich user interfaces.',
+    image: ReactPic,
+    heading: 'React JS',
+    description: 'Develop scalable single-page applications with React JS, leveraging its component-based architecture.',
     status: 'completed',
     domain: 'Web Development'
   },
   {
-    image: ReactPic,
-    heading: 'React JS',
-    description: 'Develop scalable single-page applications with React JS, leveraging its component-based architecture.',
+    image: Bootstrap,
+    heading: 'BootStrap',
+    description: 'Develop responsive, mobile-first websites with Bootstrap, ensuring efficient and reliable designs.',
     status: 'completed',
     domain: 'Web Development'
   },
@@ -92,55 +124,6 @@ const skills = [
     domain: 'Web Development'
   },
   {
-    image: Linux,
-    heading: 'Linux',
-    description: 'Utilize Linux for development and deployment, leveraging its robust command-line tools and environments.',
-    status: 'completed',
-    domain: 'Operating Systems & Development Tools'
-  },
-  {
-    image: ASM,
-    heading: 'Assembly Language',
-    description: 'Write low-level code with Assembly language, optimizing performance for critical applications.',
-    status: 'completed',
-    domain: 'Embedded Systems & IoT'
-  },
-  {
-    image: EmbededC,
-    heading: 'Embedded C',
-    description: 'Develop firmware for embedded systems using Embedded C, ensuring efficient and reliable code.',
-    status: 'completed',
-    domain: 'Embedded Systems & IoT'
-  },
-  {
-    image: Bootstrap,
-    heading: 'BootStrap',
-    description: 'Develop responsive, mobile-first websites with Bootstrap, ensuring efficient and reliable designs.',
-    status: 'completed',
-    domain: 'Web Development'
-  },
-  {
-    image: C,
-    heading: 'C',
-    description: 'Write low-level code with C, optimizing performance for critical applications.',
-    status: 'completed',
-    domain: 'Embedded Systems & IoT'
-  },
-  {
-    image: Cpp,
-    heading: 'C++',
-    description: 'Develop firmware for embedded systems using C++, ensuring efficient and reliable code.',
-    status: 'completed',
-    domain: 'Embedded Systems & IoT'
-  },
-  {
-    image: Python,
-    heading: 'Python',
-    description: 'Develop applications with Python, including web development, data analysis, and automation.',
-    status: 'completed',
-    domain: 'Programming'
-  },
-  {
     image: Nodejs,
     heading: 'Node.js',
     description: 'Learning to build scalable network applications using Node.js, leveraging its event-driven architecture.',
@@ -155,41 +138,79 @@ const skills = [
     domain: 'Web Development'
   },
   {
-    image: Image,
-    heading: 'Computer Vision',
-    description: 'Analyzing and transforming images to extract valuable information or enhance visual quality for various applications.',
-    status: 'completed',
-    domain: 'AI & Data Science'
+    image: '',
+    heading: 'Redux',
+    description: 'State management for React applications using Redux.',
+    status: 'ongoing',
+    domain: 'Web Development'
   },
-  {
-    image: MachineLearning,
-    heading: 'Machine Learning',
-    description: 'Studying machine learning algorithms and techniques to develop predictive models and automated decision-making systems.',
-    status: 'ongoing',
-    domain: 'AI & Data Science'
-  },
-  {
-    image: Datasci,
-    heading: 'Data Science',
-    description: 'Exploring data analysis methods and statistical techniques to derive insights and solve complex business problems.',
-    status: 'ongoing',
-    domain: 'AI & Data Science'
-  },
-  {
-    image: ChatBot,
-    heading: 'Chatbots',
-    description: 'Building AI-driven conversational agents using NLP, machine learning, and deep learning techniques for interactive and automated responses.',
-    status: 'ongoing',
-    domain: 'AI & Data Science'
-},
-{
-    image: GenAI,
-    heading: 'Generative AI',
-    description: 'Developing AI models that generate text, images, and videos using deep learning techniques like GANs, transformers, and diffusion models.',
-    status: 'ongoing',
-    domain: 'AI & Data Science'
-}
 
+  // --- Embedded System & Dev Tools ---
+  {
+    image: Arduino,
+    heading: 'Arduino',
+    description: 'Design and implement embedded systems using Arduino, creating innovative hardware projects.',
+    status: 'completed',
+    domain: 'Embedded System & Dev Tools'
+  },
+  {
+    image: RaspberryPi,
+    heading: 'Raspberry Pi',
+    description: 'Develop IoT solutions with Raspberry Pi, integrating sensors and actuators for smart applications.',
+    status: 'completed',
+    domain: 'Embedded System & Dev Tools'
+  },
+  {
+    image: EmbededC,
+    heading: 'Embedded C',
+    description: 'Develop firmware for embedded systems using Embedded C, ensuring efficient and reliable code.',
+    status: 'completed',
+    domain: 'Embedded System & Dev Tools'
+  },
+  {
+    image: ASM,
+    heading: 'Assembly Language',
+    description: 'Write low-level code with Assembly language, optimizing performance for critical applications.',
+    status: 'completed',
+    domain: 'Embedded System & Dev Tools'
+  },
+  {
+    image: Linux,
+    heading: 'Linux',
+    description: 'Utilize Linux for development and deployment, leveraging its robust command-line tools and environments.',
+    status: 'completed',
+    domain: 'Embedded System & Dev Tools'
+  },
+
+  // --- Programming Language ---
+  {
+    image: JS,
+    heading: 'JavaScript',
+    description: 'Build dynamic and interactive web applications using JavaScript, enabling rich user interfaces.',
+    status: 'completed',
+    domain: 'Programming Language'
+  },
+  {
+    image: Cpp,
+    heading: 'C++',
+    description: 'Develop firmware for embedded systems using C++, ensuring efficient and reliable code.',
+    status: 'completed',
+    domain: 'Programming Language'
+  },
+  {
+    image: C,
+    heading: 'C',
+    description: 'Write low-level code with C, optimizing performance for critical applications.',
+    status: 'completed',
+    domain: 'Programming Language'
+  },
+  {
+    image: Python,
+    heading: 'Python',
+    description: 'Develop applications with Python, including web development, data analysis, and automation.',
+    status: 'completed',
+    domain: 'Programming Language'
+  },
 ];
 
 const groupedSkills = skills.reduce((acc, skill) => {
