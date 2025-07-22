@@ -49,16 +49,6 @@
   padding-left: 20px;
 }
 
-.sub_heading::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  background: #cd0ff9;
-  transform: translateY(-50%) rotate(45deg);
-}
 
 body {
   scrollbar-width: none;

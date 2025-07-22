@@ -6,7 +6,7 @@
 
 @keyframes borderGlow {
   0% { border-color: #cd0ff9; }
-  50% { border-color: #0ff9cd; }
+  50% { border-color: #ff72f8; }
   100% { border-color: #cd0ff9; }
 }
 

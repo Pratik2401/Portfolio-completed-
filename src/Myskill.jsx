@@ -31,6 +31,7 @@ import MachineLearning from './assets/images/machinlearning.png';
 import Datasci from './assets/images/datasci.png';
 import Image from './assets/images/image_process.png';
 import GenAI from './assets/images/GenAI.png'
+import Redux from './assets/images/Redux.png'
 import ChatBot from './assets/images/chatbot.png'
 import './Myskill.css';
 import Langchain from './assets/images/Langchain.png';
@@ -138,7 +139,7 @@ const skills = [
     domain: 'Web Development'
   },
   {
-    image: '',
+    image: Redux,
     heading: 'Redux',
     description: 'State management for React applications using Redux.',
     status: 'ongoing',
@@ -181,6 +182,13 @@ const skills = [
     status: 'completed',
     domain: 'Embedded System & Dev Tools'
   },
+{
+    image: Arduino,
+    heading: 'Arduino',
+    description: 'Design and implement embedded systems using Arduino, creating innovative hardware projects.',
+    status: 'completed',
+    domain: 'Embedded System & Dev Tools'
+  },
 
   // --- Programming Language ---
   {
@@ -190,6 +198,7 @@ const skills = [
     status: 'completed',
     domain: 'Programming Language'
   },
+
   {
     image: Cpp,
     heading: 'C++',
@@ -211,6 +220,21 @@ const skills = [
     status: 'completed',
     domain: 'Programming Language'
   },
+     {
+    image: JS,
+    heading: 'JavaScript',
+    description: 'Build dynamic and interactive web applications using JavaScript, enabling rich user interfaces.',
+    status: 'completed',
+    domain: 'Programming Language'
+  },
+  {
+    image: Cpp,
+    heading: 'C++',
+    description: 'Develop firmware for embedded systems using C++, ensuring efficient and reliable code.',
+    status: 'completed',
+    domain: 'Programming Language'
+  },
+  
 ];
 
 const groupedSkills = skills.reduce((acc, skill) => {

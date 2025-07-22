@@ -1,3 +1,111 @@
+/* Freelancing Section Layout */
+.freelance-section {
+  width: 100%;
+  margin-bottom: 40px;
+  background: none;
+}
+.freelance-card-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 2.5rem;
+}
+.freelance-card {
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  border-radius: 22px;
+  transition: box-shadow 0.5s;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  width: 90vw;
+  max-width: 1100px;
+  min-height: 340px;
+  overflow: hidden;
+  border: 2px solid #cd0ff9;
+}
+
+.freelance-card:hover {
+    color: #fff;
+    box-shadow: 0 0 5px #ffffff,
+                0 0 10px #ffffff,
+                0 0 20px #cd0ff9,
+                0 0 30px #be4ae4,
+                0 0 30px #be4ae4 !important;
+}
+.freelance-card-left {
+  flex: 1.2;
+  padding: 2.2rem 2.2rem 2.2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.freelance-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #a78bfa;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.5px;
+}
+.freelance-tags {
+  margin-bottom: 1.1rem;
+}
+.freelance-tag {
+    border: none !important;
+    font-weight: bold !important;
+    background-color: #ce0ff930 !important;
+    padding: 5px 7px !important;
+    margin: 5px 2px !important;
+    color: white !important;
+    cursor:default !important;
+    font-size: 10px !important;
+    border: 1px solid #cd0ff9 !important;
+    border-radius: 10px 0 10px 0 !important;
+}
+.freelance-desc-text {
+  color: white !important;
+  font-size: 1.08rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+.freelance-btn {
+  font-size: 1.08rem;
+  padding: 0.55rem 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.13);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+  width: 200px !important;
+}
+.freelance-card-right {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: #fff;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  
+  position: relative;
+}
+
+.freelance-card-right-content{
+  height: 100% !important;
+}
+.freelance-img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 220px;
+  max-height: 100%;
+  object-fit: cover !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .project_cards {
     backdrop-filter: blur(5px);
     background-color: transparent !important;
@@ -15,8 +123,7 @@
     overflow: hidden;
     
     transition: box-shadow 0.5s;
-    height: 100% !important
-    ;
+
 }
 
 /* .projectCard-Body{
@@ -88,11 +195,14 @@
 .tech-tag{
     border: none !important;
     font-weight: bold !important;
-    background-color: #ffffff !important;
+    background-color: #ce0ff930 !important;
     padding: 5px 7px !important;
-    margin: 5px !important;
-    color: black !important;
+    margin: 5px 2px !important;
+    color: white !important;
     cursor:default !important;
+    font-size: 10px !important;
+    border: 1px solid #cd0ff9 !important;
+    border-radius: 10px 0 10px 0 !important;
 }
 
 .Project-Rows{
