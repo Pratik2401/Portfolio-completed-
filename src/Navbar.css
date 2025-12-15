@@ -1,69 +1,36 @@
-@keyframes navGlow {
-  0% { box-shadow: 0 0 10px rgba(205, 15, 249, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(205, 15, 249, 0.5); }
-  100% { box-shadow: 0 0 10px rgba(205, 15, 249, 0.3); }
-}
-
-@keyframes linkPulse {
-  0% { text-shadow: 0 0 5px rgba(205, 15, 249, 0.5); }
-  50% { text-shadow: 0 0 10px rgba(205, 15, 249, 0.8), 0 0 20px rgba(205, 15, 249, 0.5); }
-  100% { text-shadow: 0 0 5px rgba(205, 15, 249, 0.5); }
-}
-
 .navbar {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.9);
   border-bottom: 1px solid rgba(205, 15, 249, 0.2);
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
   position: relative;
 }
 
 .scrolled-navbar {
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(15px);
-  animation: navGlow 3s infinite;
+  background: rgba(0, 0, 0, 0.98);
+  box-shadow: 0 2px 15px rgba(205, 15, 249, 0.2);
 }
 
 .navbar-brand {
   font-weight: bold;
-  letter-spacing: 2px;
-  position: relative;
+  letter-spacing: 1px;
   padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-}
-
-.navbar-brand::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #cd0ff9, transparent);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.navbar-brand:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
+  font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
 }
 
 .surname {
   color: #cd0ff9;
-  animation: linkPulse 2s infinite;
+  text-shadow: 0 0 10px rgba(205, 15, 249, 0.5);
 }
 
 .nav-link {
   color: white !important;
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem !important;
+  margin: 0 0.3rem;
+  padding: 0.5rem 0.8rem !important;
   position: relative;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   text-transform: uppercase;
-  font-size: 0.9rem !important;
-  letter-spacing: 1px;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem) !important;
+  letter-spacing: 0.5px;
 }
 
 .nav-link::before {
@@ -86,12 +53,10 @@
 
 .nav-link:hover {
   color: #cd0ff9 !important;
-  text-shadow: 0 0 10px rgba(205, 15, 249, 0.5);
 }
 
 .active-link {
   color: #cd0ff9 !important;
-  position: relative;
 }
 
 .active-link::before {
@@ -100,7 +65,7 @@
 
 .navbar-toggler {
   border: 1px solid #cd0ff9 !important;
-  padding: 0.5rem;
+  padding: 0.4rem;
 }
 
 .navbar-toggler-icon {
@@ -113,23 +78,37 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #cd0ff9, #0ff9cd);
+  background: #cd0ff9;
   transform-origin: 0%;
   z-index: 1000;
 }
 
 @media (max-width: 991px) {
   .navbar-collapse {
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.98);
     padding: 1rem;
     border-radius: 10px;
     border: 1px solid rgba(205, 15, 249, 0.2);
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   
   .nav-link {
     text-align: center;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
+    font-size: 0.9rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0.5rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1rem !important;
   }
 }

@@ -182,36 +182,33 @@ export default function Project() {
   }
 ];
 const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     show: { 
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.6 
+        duration: 0.4 
       }
     },
     exit: {
       opacity: 0,
-      y: -50,
-      transition: { duration: 0.4 }
+      y: -20,
+      transition: { duration: 0.3 }
     },
   };
   
   const buttonVariants = {
-    hidden: { opacity: 0, x: 50 }, // Start from the right (50px)
+    hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      x: 0, // Move to its original position
       transition: {
-        duration: 0.5,
-        staggerChildren: 0.2, // Apply stagger effect to each button individually when showing
+        duration: 0.3,
       },
     },
     exit: {
       opacity: 0,
-      x: 50, // Move to the right again
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     },
   };
@@ -228,123 +225,77 @@ const cardVariants = {
       <Container>
         <div className="freelance-section">
           <div className="sub_heading">Freelancing Projects</div>
-          {freelancing.map((project, index) => {
-            const { ref, inView } = useInView({ triggerOnce: false });
-            const isEven = index % 2 === 0;
-            const staggerDelay = 0.25 * index;
-            return (
-              <AnimatePresence key={index}>
-                <Row className="freelance-card-row freelance-card">
-                  <Col
-                    xs={12}
-                    md={5}
-                    className="freelance-card-right"
-                    style={{ order: isEven ? 0 : 1 }}
-                  >
-                    <motion.div
-                      ref={ref}
-                      initial="hidden"
-                      animate={inView ? 'show' : 'hidden'}
-                      exit="exit"
-                      variants={cardVariants}
-                      transition={{ delay: staggerDelay, duration: 0.6 }}
-                      style={{ width: '100%' }}
-                      className='freelance-card-right-content'
-                    >
-                      {project.image && (
-                        <img
-                          src={project.image}
-                          alt={project.heading}
-                          className="freelance-img"
-                         
-                        />
-                      )}
-                    </motion.div>
-                  </Col>
-                  <Col
-                    xs={12}
-                    md={7}
-                    className="freelance-card-left"
-                    style={{ order: isEven ? 1 : 0 }}
-                  >
-                    <motion.div
-                      ref={ref}
-                      initial="hidden"
-                      animate={inView ? 'show' : 'hidden'}
-                      exit="exit"
-                      variants={cardVariants}
-                      transition={{ delay: staggerDelay, duration: 0.6 }}
-                    >
-                      <div className="freelance-title" style={{ fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '10px' }}>{project.heading}</div>
-                      <div className="freelance-tags" style={{ marginBottom: '10px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          <div className="freelance-grid">
+            {freelancing.map((project, index) => {
+              const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+              return (
+                <motion.div
+                  key={index}
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? 'show' : 'hidden'}
+                  variants={cardVariants}
+                  transition={{ delay: 0.1 * index, duration: 0.4 }}
+                  className="freelance-card-wrapper"
+                >
+                  <div className="freelance-card-new">
+                    <div className="freelance-img-container">
+                      <img
+                        src={project.image}
+                        alt={project.heading}
+                        className="freelance-img-new"
+                        loading="lazy"
+                      />
+                      <div className="freelance-overlay">
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="freelance-visit-btn">
+                          <span>Visit Site</span>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                    <div className="freelance-content">
+                      <div className="freelance-header">
+                        <h3 className="freelance-title-new">{project.heading}</h3>
+                        <span className="freelance-status">Completed</span>
+                      </div>
+                      <p className="freelance-desc-new">{project.description}</p>
+                      <div className="freelance-tech-stack">
                         {project.tech.map((tech, idx) => (
-                          <span key={idx} className="freelance-tag" style={{ background: '#e3e3e3', borderRadius: '8px', padding: '4px 10px', fontSize: '0.95rem' }}>{tech}</span>
+                          <span key={idx} className="freelance-tech-tag">{tech}</span>
                         ))}
                       </div>
-                      <div className="freelance-desc-text" style={{ marginBottom: '15px', fontSize: '1rem', color: '#444' }}>{project.description}</div>
-                      <Button variant="primary" href={project.link} target="_blank" className="project_vist freelance-btn" style={{ fontWeight: 'bold', fontSize: '1rem', padding: '8px 18px', borderRadius: '6px', width: '100%', maxWidth: '300px', margin: '0 auto', display: 'block' }}>
-                        <strong>Visit Project</strong>
-                      </Button>
-                    </motion.div>
-                  </Col>
-                  <style>{`
-                    @media (max-width: 767px) {
-                      .freelance-card-row {
-                        flex-direction: column !important;
-                      }
-                      .freelance-card-right {
-                        order: 0 !important;
-                      }
-                      .freelance-card-left {
-                        order: 1 !important;
-                      }
-                    }
-                  `}</style>
-                </Row>
-              </AnimatePresence>
-            );
-          })}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         <Row className='Project-Rows'>
           <div className="sub_heading">Web Dev Projects</div>
           <AnimatePresence>
             {front_end_projects.map((project, index) => {
-              const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.65 });
-              const staggerDelay = 0.25 * index;
+              const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
               return (
-                <Col key={index} md={4} className="Project-Col mb-4 d-flex justify-content-center">
+                <Col key={index} md={4} sm={6} xs={12} className="Project-Col mb-4 d-flex justify-content-center">
                   <motion.div
                     ref={ref}
                     initial="hidden"
                     animate={inView ? 'show' : 'hidden'}
                     exit="exit"
                     variants={cardVariants}
-                    transition={{ delay: staggerDelay, duration: 0.6 }}
+                    transition={{ delay: 0.05 * index, duration: 0.4 }}
                   >
-                    <Card className="project_cards" style={{ width: '300px'}}>
-                      <Card.Img src={project.image} className="project_images" />
+                    <Card className="project_cards" style={{ width: '280px', maxWidth: '100%' }}>
+                      <Card.Img src={project.image} className="project_images" alt={project.heading} loading="lazy" />
                       <Card.Body>
                         <Card.Title>{project.heading}</Card.Title>
                         <div className="tech-tags-container" style={{ display: 'flex', flexWrap: 'wrap' }}>
                           {project.tech.map((tech, idx) => (
-                            <motion.div
-                              key={idx}
-                              initial="hidden"
-                              animate={inView ? 'show' : 'hidden'}
-                              variants={buttonVariants}
-                              transition={{ delay: idx * 0.2 }}
-                              style={{
-                                marginRight: '10px',
-                                marginBottom: '10px',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                flexWrap: 'wrap',
-                              }}
-                            >
-                              <Button className="tech-tag">{tech}</Button>
-                            </motion.div>
+                            <span key={idx} className="tech-tag">{tech}</span>
                           ))}
                         </div>
                         <Card.Text>{project.description}</Card.Text>

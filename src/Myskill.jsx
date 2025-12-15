@@ -246,70 +246,61 @@ const groupedSkills = skills.reduce((acc, skill) => {
 const MyWork = () => {
   return (
     <div id="skills">
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+    <div
       className="heading"
       style={{ fontFamily: "cocogoose", fontWeight: "bolder", color: "white", fontSize: "2rem" }}
     >
       My Skills
-    </motion.div>
+    </div>
 
     {Object.keys(groupedSkills).map((domain, idx) => {
-      const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.1 });
+      const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
       return (
         <motion.div
           key={idx}
           ref={ref}
-          initial={{ opacity: 0, y: 70 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.3, delay: idx * 0.1 }}
+          transition={{ duration: 0.4, delay: idx * 0.05 }}
         >
           <h2 className="domain-heading">{domain}</h2>
           <Swiper
-              modules={[ Pagination, Autoplay]}
-  spaceBetween={7} // Reduced spacing for smoother transition
+              modules={[Pagination, Autoplay]}
+  spaceBetween={10}
   slidesPerView={1}
   centeredSlides={true}
   breakpoints={{
-    320: { slidesPerView: 1.07, spaceBetween: 1 }, // Mobile view (show part of next/prev slide)
-    768: { slidesPerView: 2.4, spaceBetween: 15 }, // Tablet view
-    1024: { slidesPerView: 3.8, spaceBetween: 15 }, // Desktop view
+    320: { slidesPerView: 1.2, spaceBetween: 8 },
+    480: { slidesPerView: 1.5, spaceBetween: 10 },
+    768: { slidesPerView: 2.5, spaceBetween: 12 },
+    1024: { slidesPerView: 3.5, spaceBetween: 15 },
+    1280: { slidesPerView: 4, spaceBetween: 15 },
   }}
   loop={true}
-  
   pagination={{ clickable: true }}
-  autoplay={{ delay: 2500, disableOnInteraction: false }} // Reduced delay for continuous smooth motion
-  speed={1000} // Slower speed for smoother effect
-  freeMode={true} // Allows smooth transitions when manually scrolling
-  grabCursor={true} // Makes it feel interactive
+  autoplay={{ delay: 3000, disableOnInteraction: false }}
+  speed={800}
+  grabCursor={true}
   className="skill-swiper"
           >
             {groupedSkills[domain].map((skill, index) => (
               <SwiperSlide key={index} className="d-flex justify-content-center">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                <Card
+                  className={skill.status === "completed" ? "completed-card skillCard" : "ongoing-card skillCard"}
+                  style={{ width: "16rem", height: "16rem", position: "relative" }}
                 >
-                  <Card
-                    className={ skill.status === "completed" ? "completed-card skillCard" : "ongoing-card skillCard"}
-                    style={{ width: "18rem", height: "18rem", position: "relative" }}
-                  >
-                    {skill.status === "ongoing" && (
-                      <div className="ribbon-wrapper">
-                        <div className="ribbon">Learning</div>
-                      </div>
-                    )}
-                    <Card.Img variant="top" src={skill.image} className="card-img-top container my_skills_cards" />
-                    <Card.Body>
-                      <Card.Title>{skill.heading}</Card.Title>
-                      <Card.Text>{skill.description}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </motion.div>
+                  {skill.status === "ongoing" && (
+                    <div className="ribbon-wrapper">
+                      <div className="ribbon">Learning</div>
+                    </div>
+                  )}
+                  <Card.Img variant="top" src={skill.image} className="card-img-top container my_skills_cards" />
+                  <Card.Body>
+                    <Card.Title>{skill.heading}</Card.Title>
+                    <Card.Text>{skill.description}</Card.Text>
+                  </Card.Body>
+                </Card>
               </SwiperSlide>
             ))}
           </Swiper>

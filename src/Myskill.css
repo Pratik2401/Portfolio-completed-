@@ -1,145 +1,130 @@
 .row{
-  margin-top: 100px !important;
+  margin-top: 60px !important;
 }
 
 .skill-swiper{
-  padding: 40px 0px;
+  padding: 30px 10px;
 }
 
 .skill-swiper .swiper-pagination .swiper-pagination-bullet {
   background-color: #cd0ff9;
 }
+
 #skills{
   margin: 0;
-  padding: 0;
-  
+  padding: 0 10px;
 }
 
-
 .skillCard, .card {
-  backdrop-filter: blur(5px);
-  background-color: transparent !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
   border: 2px solid #cd0ff9;
-  box-shadow: 0 0 2px #ffffff,
-              0 0 5px #ffffff,
-              0 0 10px #cd0ff9,
-              0 0 15px #be4ae4,
-              0 0 15px #be4ae4 !important;
-  border-radius: 10% !important;
+  box-shadow: 0 0 10px rgba(205, 15, 249, 0.3) !important;
+  border-radius: 15px !important;
   margin: 10px;
   text-align: center !important;
-  margin: 40px 0;
-  transition: color 0.4s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   overflow: hidden;
   position: relative;
 }
 
-/* Before for top fill */
-.skillCard::before {
-  content: '';
-  position: absolute;
-  top: -100%; /* Start from outside */
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ce0ff975; /* Purple color */
-  transition: top 1s ease;
-  z-index: -1;
-}
-
-/* After for bottom fill */
-.skillCard::after {
-  content: '';
-  position: absolute;
-  bottom: -100%; /* Start from outside */
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ce0ff97a; /* Darker purple */
-  transition: bottom 1s ease;
-  z-index: -1;
-}
-
-/* Hover Effect */
-.skillCard:hover::before {
-  top: 0; /* Move to fill from top */
-}
-
-.skillCard:hover::after {
-  bottom: 0; /* Move to fill from bottom */
-}
-
 .skillCard:hover {
-  color: #fff;
-  
-  box-shadow: 0 0 5px #ffffff,
-              0 0 10px #ffffff,
-              0 0 20px #cd0ff9,
-              0 0 30px #be4ae4,
-              0 0 30px #be4ae4 !important;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(205, 15, 249, 0.5) !important;
 }
 
 .skillCard:hover .card-title{
   color: white !important;
 }
 .domain-heading{
-  margin-left: 20px;
+  margin-left: 15px;
   color: white;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 10px;
 }
 
 .completed-card,.ongoing-card{
-
-  transition: translate 0.5s;
+  transition: transform 0.3s ease;
 }
+
 .completed-card:hover,.ongoing-card:hover{
-  translate:0 -20px;
+  transform: translateY(-8px);
 }
-
 
 .my_skills_cards {
-    width: 5rem !important;
-    height: 5rem !important;
-    object-fit: contain;
-  }
-  
-  .completed-card {
-    border: 2px solid green;
-  }
-  
-  .ongoing-card {
-    overflow: hidden;
-    background-color: #afafaf7d !important;
-    position: relative;
-  }
-  
-  .ribbon-wrapper {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 80px;
-    height: 0;
-  }
-  
+  width: 4rem !important;
+  height: 4rem !important;
+  object-fit: contain;
+}
 
+.completed-card {
+  border: 2px solid green;
+}
+
+.ongoing-card {
+  overflow: hidden;
+  background-color: rgba(100, 100, 100, 0.3) !important;
+  position: relative;
+}
+
+.ribbon-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80px;
+  height: 0;
+}
+
+.ribbon {
+  width: 8rem !important;
+  background-color: #cd0ff9;
+  color: white;
+  padding: 4px 10px;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10px;
+  left: -40px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.card-title{
+  color: #cd0ff9 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.card-text{
+  color: white !important;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  line-height: 1.4;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .domain-heading {
+    text-align: center;
+    margin-left: 0;
+  }
+  
+  .my_skills_cards {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
   
   .ribbon {
-    width: 10rem !important;
-    background-color: #cd0ff9 ;
-    color: white;
-    padding: 6px 12px;
-    transform: rotate(-45deg);
-    position: absolute;
-    top: 10px;
-    left: -45px;
-    text-align: center;
+    width: 6rem !important;
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    left: -30px;
   }
+}
 
-.card-title{
-    color: #cd0ff9 !important;
-}
-.card-title{
-    color: #cd0ff9 !important;
-}
-.card-text{
-    color: white !important;
+@media (max-width: 480px) {
+  .skill-swiper {
+    padding: 20px 5px;
+  }
+  
+  .my_skills_cards {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
 }

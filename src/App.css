@@ -4,39 +4,25 @@
   box-sizing: border-box;
 }
 
-@keyframes gradientBorder {
-  0% { border-image: linear-gradient(45deg, #cd0ff9, #0ff9cd) 1; }
-  50% { border-image: linear-gradient(225deg, #cd0ff9, #0ff9cd) 1; }
-  100% { border-image: linear-gradient(45deg, #cd0ff9, #0ff9cd) 1; }
-}
-
-@keyframes scanline {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
 .heading {
   text-align: center;
-  margin: 45px 0 !important;
-  font-size: 3rem;
+  margin: 30px 0 !important;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   color: white;
   position: relative;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px rgba(205, 15, 249, 0.5);
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(205, 15, 249, 0.4);
+  padding: 0 15px;
 }
 
 .heading::before {
   content: '';
   position: absolute;
   left: 50%;
-  bottom: -10px;
-  width: 100px;
-  height: 3px;
+  bottom: -8px;
+  width: 80px;
+  height: 2px;
   background: linear-gradient(90deg, transparent, #cd0ff9, transparent);
   transform: translateX(-50%);
 }
@@ -51,31 +37,23 @@
 
 
 body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #cd0ff9 #000000;
   background: #000000;
   position: relative;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0%,
-    rgba(205, 15, 249, 0.03) 50%,
-    transparent 100%
-  );
-  pointer-events: none;
-  animation: scanline 10s linear infinite;
+body::-webkit-scrollbar {
+  width: 6px;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+body::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #cd0ff9;
+  border-radius: 3px;
 }
 
 html, body {
@@ -94,45 +72,36 @@ html, body {
 
 .go-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.9);
   border: 2px solid #cd0ff9 !important;
   color: #cd0ff9;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
   cursor: pointer;
-  backdrop-filter: blur(5px);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-
-.go-to-top::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, #cd0ff9, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .go-to-top:hover {
   color: white;
   background-color: #cd0ff9;
-  transform: translateY(-5px) rotate(45deg);
-  box-shadow: 0 0 15px #cd0ff9, 0 0 30px #cd0ff9;
 }
 
-.go-to-top:hover::before {
-  opacity: 0.3;
+@media (max-width: 768px) {
+  .go-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    bottom: 10px;
+    right: 10px;
+  }
 }
 
 /* Add sci-fi container styles */
